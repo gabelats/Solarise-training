@@ -1,0 +1,7 @@
+div {
+  color: #64645c;
+}
+.login-page {
+  background-image: linear-gradient(to bottom right, #ff8000, #ffcc08);
+  min-height: 100vh;
+}
