@@ -1,0 +1,12 @@
+.nav-link-custom {
+  color: black; /* Override text color */
+}
+
+.nav-pills .nav-link-custom.active,
+.nav-pills .show > .nav-link-custom {
+  background-color: yellow !important; /* Override active text color */
+}
+
+.nav-link-custom:hover {
+  background-color: yellow; /* Text color on hover */
+}
