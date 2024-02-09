@@ -6,7 +6,6 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import App from "./App.jsx";
 import Admin from "./pages/Admin.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
