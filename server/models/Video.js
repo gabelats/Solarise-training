@@ -1,13 +1,16 @@
 const { Schema, model } = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const videoSchema = new Schema({
   title: {
     type: String,
     required: true,
   },
-  video: {
-    type: string,
+  videoLink: {
+    type: String,
     required: true,
   },
 });
+
+const Video = model("Video", videoSchema);
+
+module.exports = Video;

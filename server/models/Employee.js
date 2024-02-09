@@ -16,6 +16,12 @@ const employeeSchema = new Schema({
     required: true,
     minLength: 6,
   },
+  video: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  ],
 });
 
 employeeSchema.methods.isCorrectPassword = async function (password) {

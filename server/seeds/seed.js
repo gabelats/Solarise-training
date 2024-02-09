@@ -10,12 +10,14 @@ db.once("open", async () => {
 
     await cleanDB("Video", "video");
 
+    await cleanDB("Employee", "employee");
+
     await Admin.create(adminSeeds);
 
     for (let i = 0; i < videoSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Video.create(videoSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: videoAuthor },
+      const { _id, videoView } = await Video.create(videoSeeds[i]);
+      const employee = await Employee.findOneAndUpdate(
+        { username: videoView },
         {
           $addToSet: {
             video: _id,
