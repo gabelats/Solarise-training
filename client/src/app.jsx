@@ -1,9 +1,9 @@
 import Header from "./components/header";
-
+import Login from "./pages/Login";
 function App() {
   return (
     <div>
-      <Header></Header>
+      <Login />
     </div>
   );
 }
