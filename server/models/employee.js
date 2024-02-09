@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const bcryot = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 const employeeSchema = new Schema({
   name: {
@@ -10,7 +10,6 @@ const employeeSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
     type: String,
