@@ -1,8 +1,7 @@
-import "./App.css";
-import BucketList from "./components/BucketList";
+import Header from "./components/header";
 
 function App() {
-  return <div></div>;
+  return <div><Header></Header></div>;
 }
 
 export default App;
