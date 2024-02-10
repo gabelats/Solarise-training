@@ -28,6 +28,6 @@ employeeSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const Employee = model("Employee", employeeSchemas);
+const Employee = model("Employee", employeeSchema);
 
 module.exports = Employee;
