@@ -28,6 +28,12 @@ const adminSchema = new Schema({
       ref: "Employee",
     },
   ],
+  videos: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  ],
 });
 
 adminSchema.pre("save", async function (next) {
