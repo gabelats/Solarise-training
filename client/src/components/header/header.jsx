@@ -14,7 +14,7 @@ function Header() {
                 src="./src/assets/Full_logo.png"
                 width="50"
                 height="50"
-                className="d-inline-block align-center"
+                className="d-inline-block align-center img2"
               />{" "}
             </Navbar.Brand>
             <Nav variant="pills" defaultActiveKey="home" className="mx-4">

@@ -5,17 +5,12 @@ function Footer() {
   return (
     <div className="bg-light">
       <Container>
-        <footer className="d-flex flex wrap align-items-center py-2 my-2">
+        <footer className="d-flex flex wrap align-items-center justify-content-between col-12 py-2 my-2">
           {" "}
-          <div className="d-flex align-items-center">
-            <a
-              href="https://www.solarisesolar.com/"
-              className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
-            >
-              <img src="./src/assets/Small_Logo.png"></img>
-            </a>
-            <span class="text-muted">Copyright 2024 © Solarise Solar</span>
-          </div>
+          <a href="https://www.solarisesolar.com/">
+            <img className="img" src="./src/assets/Full_logo.png"></img>
+          </a>
+          <span class="text-muted m-2">Copyright 2024 © Solarise Solar</span>
         </footer>
       </Container>
     </div>
