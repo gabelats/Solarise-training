@@ -18,8 +18,8 @@ const typeDefs = `
 
   type Video {
     _id: ID
-    titel: String
-    video: String
+    title: String
+    videoLink: String
   
   }
 
@@ -31,7 +31,7 @@ const typeDefs = `
   type Query {
     employees: [Employee]
     employee(username: String!): Employee
-    videos: Video
+    videos: [Video]
     video(videoId: ID!): Video
     me: Admin
   }
