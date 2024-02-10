@@ -11,12 +11,11 @@ function Header() {
             <Navbar.Brand href="#home">
               <img
                 alt=""
-                src="./src/assets/Asset_1.png"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
+                src="./src/assets/Full_logo.png"
+                width="50"
+                height="50"
+                className="d-inline-block align-center img2"
               />{" "}
-              Solarize
             </Navbar.Brand>
             <Nav variant="pills" defaultActiveKey="home" className="mx-4">
               <Nav.Link href="#home" className="nav-link-custom m-2">
