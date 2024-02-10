@@ -10,7 +10,9 @@ function Footer() {
           <a href="https://www.solarisesolar.com/">
             <img className="img" src="./src/assets/Full_logo.png"></img>
           </a>
-          <span class="text-muted m-2">Copyright 2024 © Solarise Solar</span>
+          <span className="text-muted m-2">
+            Copyright 2024 © Solarise Solar
+          </span>
         </footer>
       </Container>
     </div>

@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Admin from "./pages/Admin.jsx";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/home/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Module from "./pages/Module.jsx";
 import Error from "./pages/Error.jsx";
