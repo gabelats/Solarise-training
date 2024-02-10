@@ -49,6 +49,7 @@ const resolvers = {
           title,
           videoLink,
         });
+        return video;
       }
       throw AuthenticationError;
     },
