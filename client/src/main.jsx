@@ -4,9 +4,9 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import App from "./App.jsx";
 import Admin from "./pages/Admin.jsx";
-import Home from "./pages/home/Home.jsx";
+import Home from "./pages/home.jsx";
 import Login from "./pages/Login.jsx";
 import Module from "./pages/Module.jsx";
 import Error from "./pages/Error.jsx";
