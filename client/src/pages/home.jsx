@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import "./home.css";
+import "./style/home.css";
 import React from "react";
-import DynamicCard from "../../components/dynamic_card";
+import DynamicCard from "../components/dynamic_card";
 
 export default function Home() {
   return (
