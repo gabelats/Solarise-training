@@ -1,3 +1,3 @@
-export default function error() {
+export default function Error() {
   return;
 }
