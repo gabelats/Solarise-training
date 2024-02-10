@@ -24,10 +24,19 @@ const employeeSchema = new Schema({
   ],
 });
 
+employeeSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
+});
+
 employeeSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const Employee = model("Employee", employeeSchemas);
+const Employee = model("Employee", employeeSchema);
 
 module.exports = Employee;

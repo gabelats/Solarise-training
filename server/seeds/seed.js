@@ -14,17 +14,19 @@ db.once("open", async () => {
 
     await Admin.create(adminSeeds);
 
-    for (let i = 0; i < videoSeeds.length; i++) {
-      const { _id, videoView } = await Video.create(videoSeeds[i]);
-      const employee = await Employee.findOneAndUpdate(
-        { username: videoView },
-        {
-          $addToSet: {
-            video: _id,
-          },
-        }
-      );
-    }
+    await Video.create(videoSeeds);
+
+    // for (let i = 0; i < videoSeeds.length; i++) {
+    //   const { _id, videoView } = await Video.create(videoSeeds[i]);
+    //   const employee = await Employee.findOneAndUpdate(
+    //     { username: videoView },
+    //     {
+    //       $addToSet: {
+    //         video: _id,
+    //       },
+    //     }
+    //   );
+    // }
   } catch (err) {
     console.error(err);
     process.exit(1);

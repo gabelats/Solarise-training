@@ -28,6 +28,21 @@ const adminSchema = new Schema({
       ref: "Employee",
     },
   ],
+  videos: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  ],
+});
+
+adminSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
 });
 
 adminSchema.methods.isCorrectPassword = async function (password) {
