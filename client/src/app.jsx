@@ -1,5 +1,7 @@
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
+import Login from "./pages/login.jsx";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import {
   ApolloClient,
@@ -28,15 +30,22 @@ const client = new ApolloClient({
 });
 
 function App() {
+  //                     !change to default false before deploy!
+  const [loggedIn, setLoggedIn] = useState(true);
+
   return (
     <ApolloProvider client={client}>
-      <div>
-        <Header></Header>
-        <div className="container">
-          <Outlet />
+      {loggedIn ? (
+        <div>
+          <Header />
+          <div className="container">
+            <Outlet loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          </div>
+          <Footer />
         </div>
-        <Footer></Footer>
-      </div>
+      ) : (
+        <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      )}
     </ApolloProvider>
   );
 }
