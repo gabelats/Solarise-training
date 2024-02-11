@@ -8,6 +8,7 @@ import Home from "./pages/home.jsx";
 import Login from "./pages/login.jsx";
 import Module from "./pages/Module.jsx";
 import Error from "./pages/Error.jsx";
+import Lesson from "./pages/lesson.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/Module/:day",
         element: <Module />,
+      },
+      {
+        path: "/lesson/:videoId",
+        element: <Lesson />,
       },
     ],
   },

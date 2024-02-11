@@ -11,7 +11,7 @@ function Header() {
       <header>
         <Navbar sticky="top" className="bg-light">
           <Container>
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
               <img
                 alt=""
                 src="./src/assets/Full_logo.png"
