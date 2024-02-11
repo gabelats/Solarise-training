@@ -2,7 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./header.css";
+import { Link, useLocation } from "react-router-dom";
+
 function Header() {
+  const currentPage = useLocation().pathname;
   return (
     <div>
       <header>
@@ -18,21 +21,23 @@ function Header() {
               />{" "}
             </Navbar.Brand>
             <Nav variant="pills" defaultActiveKey="home" className="mx-4">
-              <Nav.Link href="#home" className="nav-link-custom m-2">
+              <Link to="/" className="nav-link-custom m-2">
                 Home
-              </Nav.Link>
-              <Nav.Link href="#scripts" className="nav-link-custom m-2">
+              </Link>
+              <Link to="/scripts" className="nav-link-custom m-2">
                 Scripts
-              </Nav.Link>
-              <Nav.Link href="#contact" className="nav-link-custom m-2">
+              </Link>
+              <Link to="/contact" className="nav-link-custom m-2">
                 Contact
-              </Nav.Link>
+              </Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#adminlogin">Admin Login</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
+              <Link to="/adminlogin" className="nav-link-custom mx-2">
+                Admin Login
+              </Link>
+              <Link eventKey={2} to="/Login" className="nav-link-custom">
                 Employee Login
-              </Nav.Link>
+              </Link>
             </Nav>
           </Container>
         </Navbar>
