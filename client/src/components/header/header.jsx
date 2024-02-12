@@ -14,7 +14,7 @@ function Header() {
             <Navbar.Brand href="/">
               <img
                 alt=""
-                src="./src/assets/Full_logo.png"
+                src="/assets/Full_logo.png"
                 width="50"
                 height="50"
                 className="d-inline-block align-center img2"
@@ -24,7 +24,7 @@ function Header() {
               <Link to="/" className="nav-link-custom m-2">
                 Home
               </Link>
-              <Link to="/scripts" className="nav-link-custom m-2">
+              <Link to="/Modules/k" className="nav-link-custom m-2">
                 Scripts
               </Link>
               <Link to="/contact" className="nav-link-custom m-2">

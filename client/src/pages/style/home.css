@@ -16,3 +16,7 @@
   background-color: #fc9935;
   color: black;
 }
+
+.lessonButton {
+  align-items: right;
+}

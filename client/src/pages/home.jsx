@@ -28,19 +28,19 @@ export default function Home() {
       <div className="d-flex flex-row justify-content-between">
         <DynamicCard
           className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
+          imageUrl="/assets/Full_logo.png"
           title="Module Day 1"
           description="Description for Day 1"
         />
         <DynamicCard
           className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
+          imageUrl="/assets/Full_logo.png"
           title="Module Day 2"
           description="Description for Day 2"
         />
         <DynamicCard
           className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
+          imageUrl="/assets/Full_logo.png"
           title="Module Day 3"
           description="Description for Day 3"
         />
@@ -48,19 +48,19 @@ export default function Home() {
       <div className="d-flex flex-row justify-content-between">
         <DynamicCard
           className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
+          imageUrl="/assets/Full_logo.png"
           title="Module Day 4"
           description="Description for Day 4"
         />
         <DynamicCard
           className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
+          imageUrl="/assets/Full_logo.png"
           title="Module Day 5"
           description="Description for Day 5"
         />
         <DynamicCard
           className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
+          imageUrl="/assets/Full_logo.png"
           title="Review/Homework"
           description="Description Homework"
         />
