@@ -58,3 +58,14 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_VIDEOS = gql`
+  query allVideos {
+    videos {
+      _id
+      title
+      day
+      videoLink
+    }
+  }
+`;
