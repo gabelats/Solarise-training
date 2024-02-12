@@ -28,8 +28,8 @@ export const LOGIN = gql`
 `;
 
 export const EMPLOYEE_LOGIN = gql`
-  mutation employeeLogin(username: String!, password: String!) {
-    employeeLogin(username: String!, password: String!) {
+  mutation employeeLogin($username: String!, $password: String!) {
+    employeeLogin($username: username, $password: password) {
       employee {
         _id
         name
