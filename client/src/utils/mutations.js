@@ -27,6 +27,18 @@ export const LOGIN = gql`
   }
 `;
 
+export const EMPLOYEE_LOGIN = gql`
+  mutation employeeLogin(username: String!, password: String!) {
+    employeeLogin(username: String!, password: String!) {
+      employee {
+        _id
+        name
+        username
+      }
+    }
+  }
+`;
+
 export const ADD_VIDEO = gql`
   mutation addVideo($title: String!, $videoLink: String!) {
     addVideo(title: $title, videoLink: $videoLink) {
