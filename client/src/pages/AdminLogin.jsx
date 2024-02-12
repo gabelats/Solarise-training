@@ -6,38 +6,31 @@ import "./style/login.css";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { useNavigate } from "react-router-dom";
 
-export default function Adminlogin() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-
+const Adminlogin = () => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
+  const navigate = useNavigate();
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
       const { data } = await login({
-        variables: { email: username, password },
+        variables: { ...formState },
       });
       console.log("Login success:", data);
-      setLoggedIn(true);
+      navigate("/Admin");
     } catch (err) {
       console.error("Login error:", err);
     }
   };
-  if (loggedIn) {
-    return <Redirect to="/Admin" />;
-  }
+
   return (
     <div className="login-page">
       <div className="container">
@@ -73,24 +66,26 @@ export default function Adminlogin() {
               >
                 <div className="form-group">
                   <input
-                    id="username-signup"
-                    type="text"
+                    id="email"
+                    type="email"
+                    name="email"
                     className="form-control"
-                    placeholder="Username"
-                    value={username}
-                    onChange={handleUsernameChange}
+                    placeholder="Email"
+                    value={formState.email}
+                    onChange={handleChange}
                     required
                   />
                   <br />
                 </div>
                 <div className="form-group field-container">
                   <input
-                    id="password-signup"
+                    id="password"
                     type="password"
+                    name="password"
                     className="form-control"
                     placeholder="Password"
-                    value={password}
-                    onChange={handlePasswordChange}
+                    value={formState.password}
+                    onChange={handleChange}
                     required
                   />
                   <br />
@@ -108,10 +103,17 @@ export default function Adminlogin() {
                   <Link to="/login">Employee Login</Link>
                 </div>
               </form>
+              {error && (
+                <div className="my-3 p-3 bg-danger text-white">
+                  {error.message}
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Adminlogin;
