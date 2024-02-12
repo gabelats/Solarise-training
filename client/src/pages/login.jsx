@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import "./style/login.css";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -69,8 +68,4 @@ export default function login() {
       </div>
     </div>
   );
-=======
-export default function Login() {
-  return;
->>>>>>> main
 }

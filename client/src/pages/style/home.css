@@ -1,0 +1,18 @@
+.background-gradient {
+  background-color: #f5f5f5; /* Light grey */
+
+  background-image: linear-gradient(
+    to bottom right,
+    #f8a34e,
+    #ffcc08
+  ); /* orange to yellow */
+}
+
+.btn-custom {
+  background-color: #f8932d;
+  color: black;
+}
+.btn-custom:hover {
+  background-color: #fc9935;
+  color: black;
+}

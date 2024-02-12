@@ -26,7 +26,7 @@ const resolvers = {
   Mutation: {
     addEmployee: async (parent, { name, username, password }) => {
       const employee = await Employee.create({ name, username, password });
-      const token = signtoken(employee);
+      const token = signToken(employee);
       return { token, employee };
     },
     login: async (parent, { email, password }) => {
