@@ -26,7 +26,7 @@ const resolvers = {
   },
 
   Mutation: {
-    addEmployee: async (parent, { name, username, password }) => {
+    addEmployee: async (parent, { name, username, password }, context) => {
       if (context.user) {
         const employee = await Employee.create({
           name,

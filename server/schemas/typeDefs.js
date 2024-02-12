@@ -37,7 +37,7 @@ const typeDefs = `
   }
 
   type Mutation {
-    addEmployee(name: String!, username: String!, password: String!): Auth
+    addEmployee(name: String!, username: String!, password: String!): Employee
     login(email: String!, password: String!): Auth
     addVideo(title: String!, videoLink: String!): Video
     
