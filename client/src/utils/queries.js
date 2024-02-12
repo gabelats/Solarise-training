@@ -6,10 +6,8 @@ export const QUERY_EMPLOYEES = gql`
       _id
       username
       email
-      thoughts {
+      video {
         _id
-        thoughtText
-        createdAt
       }
     }
   }

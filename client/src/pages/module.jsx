@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import "./style/home.css";
 import React from "react";
-import DynamicCard from "../components/dynamic_card";
 import Table from "react-bootstrap/Table";
 import { Link, useParams } from "react-router-dom";
 import schedule from "../schedule";
