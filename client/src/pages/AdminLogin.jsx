@@ -1,11 +1,43 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN } from "../utils/mutations";
 import "./style/login.css";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
 
 export default function Adminlogin() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const [login, { error }] = useMutation(LOGIN);
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { email: username, password },
+      });
+      console.log("Login success:", data);
+      setLoggedIn(true);
+    } catch (err) {
+      console.error("Login error:", err);
+    }
+  };
+  if (loggedIn) {
+    return <Redirect to="/Admin" />;
+  }
   return (
     <div className="login-page">
       <div className="container">
@@ -34,13 +66,19 @@ export default function Adminlogin() {
               <h3 className="mb-4 text-center">
                 Admin Login : Employee Training
               </h3>
-              <form action="#" className="signup-form" id="signup-form">
+              <form
+                onSubmit={handleSubmit}
+                className="signup-form"
+                id="signup-form"
+              >
                 <div className="form-group">
                   <input
                     id="username-signup"
                     type="text"
                     className="form-control"
                     placeholder="Username"
+                    value={username}
+                    onChange={handleUsernameChange}
                     required
                   />
                   <br />
@@ -51,6 +89,8 @@ export default function Adminlogin() {
                     type="password"
                     className="form-control"
                     placeholder="Password"
+                    value={password}
+                    onChange={handlePasswordChange}
                     required
                   />
                   <br />
