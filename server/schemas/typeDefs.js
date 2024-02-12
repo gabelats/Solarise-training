@@ -18,8 +18,8 @@ const typeDefs = `
 
   type Video {
     _id: ID
-    titel: String
-    video: String
+    title: String
+    videoLink: String
   
   }
 
@@ -31,15 +31,15 @@ const typeDefs = `
   type Query {
     employees: [Employee]
     employee(username: String!): Employee
-    videos: Video
+    videos: [Video]
     video(videoId: ID!): Video
     me: Admin
   }
 
   type Mutation {
-    addEmployee(name: String!, username: String!, password: String!): Auth
+    addEmployee(name: String!, username: String!, password: String!): Employee
     login(email: String!, password: String!): Auth
-    addVideo(title: String!, videoLink: String!): Admin
+    addVideo(title: String!, videoLink: String!): Video
     
     removeEmployee(employeeId: ID!): Auth
     removeVideo(videoId: ID!): Auth
