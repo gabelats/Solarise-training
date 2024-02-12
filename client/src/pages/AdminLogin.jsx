@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
 
-export default function login() {
+export default function Adminlogin() {
   return (
     <div className="login-page">
       <div className="container">
@@ -31,7 +31,9 @@ export default function login() {
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-4">
             <div className="login-wrap p-0">
-              <h3 className="mb-4 text-center">Training:</h3>
+              <h3 className="mb-4 text-center">
+                Admin Login : Employee Training
+              </h3>
               <form action="#" className="signup-form" id="signup-form">
                 <div className="form-group">
                   <input
@@ -63,7 +65,7 @@ export default function login() {
                   </button>
                 </div>
                 <div className="text-center">
-                  <Link to="/admin-login">Admin Login</Link>
+                  <Link to="/login">Employee Login</Link>
                 </div>
               </form>
             </div>
