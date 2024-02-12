@@ -41,8 +41,8 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     employeeLogin(username: String!, password: String!): Employee
     addVideo(title: String!, videoLink: String!): Video
-    removeEmployee(employeeId: ID!): Auth
-    removeVideo(videoId: ID!): Auth
+    removeEmployee(employeeId: ID!): Employee
+    removeVideo(videoId: ID!): Video
   }
 `;
 

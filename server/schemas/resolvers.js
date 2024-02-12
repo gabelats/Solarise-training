@@ -83,7 +83,7 @@ const resolvers = {
     },
     removeVideo: async (parent, { videoId }, context) => {
       if (context.user) {
-        const video = await Vidoe.findOneAndDelete({
+        const video = await Video.findOneAndDelete({
           _id: videoId,
         });
         return video;
