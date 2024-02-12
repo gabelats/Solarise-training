@@ -7,7 +7,7 @@ const resolvers = {
       return await Employee.find().populate("video");
     },
     employee: async (parent, { username }) => {
-      return await Employee.findOne({ username }).populate(video);
+      return await Employee.findOne({ username }).populate("video");
     },
     videos: async () => {
       return await Video.find();
@@ -36,6 +36,17 @@ const resolvers = {
         return employee;
       }
       throw AuthenticationError;
+    },
+    employeeLogin: async (parent, { username, password }) => {
+      const employee = await Employee.findOne({ username });
+      if (!employee) {
+        throw AuthenticationError;
+      }
+      const correctPw = await employee.isCorrectPassword(password);
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+      return employee;
     },
     login: async (parent, { email, password }) => {
       const admin = await Admin.findOne({ email });
