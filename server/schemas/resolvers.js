@@ -4,30 +4,38 @@ const { signToken, AuthenticationError } = require("../utils/auth");
 const resolvers = {
   Query: {
     employees: async () => {
-      return Employee.find().populate("video");
+      return await Employee.find().populate("video");
     },
     employee: async (parent, { username }) => {
-      return Employee.findOne({ username }).populate(video);
+      return await Employee.findOne({ username }).populate(video);
     },
     videos: async () => {
-      return Video.find();
+      return await Video.find();
     },
     video: async (parent, { videoId }) => {
-      return Video.findOne({ _id: videoId });
+      return await Video.findOne({ _id: videoId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return Admin.findOne({ _id: context.user._id }).populate("employees");
+        return await Admin.findOne({ _id: context.user._id }).populate(
+          "employees"
+        );
       }
       throw AuthenticationError;
     },
   },
 
   Mutation: {
-    addEmployee: async (parent, { name, username, password }) => {
-      const employee = await Employee.create({ name, username, password });
-      const token = signToken(employee);
-      return { token, employee };
+    addEmployee: async (parent, { name, username, password }, context) => {
+      if (context.user) {
+        const employee = await Employee.create({
+          name,
+          username,
+          password,
+        });
+        return employee;
+      }
+      throw AuthenticationError;
     },
     login: async (parent, { email, password }) => {
       const admin = await Admin.findOne({ email });
