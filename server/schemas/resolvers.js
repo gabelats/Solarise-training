@@ -26,10 +26,16 @@ const resolvers = {
   },
 
   Mutation: {
-    addEmployee: async (parent, { name, username, password }, context) => {
-      const employee = await Employee.create({ name, username, password });
-      const token = signToken(employee);
-      return { token, employee };
+    addEmployee: async (parent, { name, username, password }) => {
+      if (context.user) {
+        const employee = await Employee.create({
+          name,
+          username,
+          password,
+        });
+        return employee;
+      }
+      throw AuthenticationError;
     },
     login: async (parent, { email, password }) => {
       const admin = await Admin.findOne({ email });
