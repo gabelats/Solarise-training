@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { LOGIN } from "../utils/mutations";
+import { EMPLOYEE_LOGIN } from "../utils/mutations";
 import "./style/login.css";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-export default function Adminlogin() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const [login, { error }] = useMutation(LOGIN);
+  const [login, { error }] = useMutation(EMPLOYEE_LOGIN);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
