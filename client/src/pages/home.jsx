@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <Container>
       <div className="background-gradient pt-3 pb-3 mt-3 mb-3 border rounded border-dark">
-        <h2 className="mb-3">Welcome to Solarize Solar Employee Training</h2>
+        <h2 className="mb-3">Welcome to Solarise Solar Employee Training</h2>
         <h4>Instructions:</h4>
         <ul>
           <li>Select a module below to begin your training</li>
           <li>
-            With in each module are videos that you will need to complete along
+            Within each module are videos that you will need to complete along
             with additional instructions
           </li>
           <li>
@@ -21,7 +21,7 @@ export default function Home() {
             available to refer back to after you have completed
           </li>
           <li>
-            Reach out to your supervisor once you can completed each module
+            Reach out to your supervisor once you have completed each module
           </li>
         </ul>
       </div>
