@@ -24,7 +24,7 @@ function Header() {
               <Link to="/" className="nav-link-custom m-2">
                 Home
               </Link>
-              <Link to="/Modules/k" className="nav-link-custom m-2">
+              <Link to="/Module/k" className="nav-link-custom m-2">
                 Scripts
               </Link>
               <Link to="/contact" className="nav-link-custom m-2">
