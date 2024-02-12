@@ -67,6 +67,7 @@ const resolvers = {
         const video = await Video.create({
           title,
           videoLink,
+          day,
         });
         return video;
       }
