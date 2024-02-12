@@ -10,6 +10,7 @@ import Module from "./pages/Module.jsx";
 import Error from "./pages/Error.jsx";
 import Lesson from "./pages/lesson.jsx";
 import AdminLogin from "./pages/AdminLogin.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +21,14 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/adminlogin",
+        element: <AdminLogin />,
+      },
       {
         path: "/Admin",
         element: <Admin />,
@@ -34,14 +42,6 @@ const router = createBrowserRouter([
         element: <Lesson />,
       },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/admin-login",
-    element: <AdminLogin />,
   },
 ]);
 
