@@ -27,9 +27,13 @@ function Header() {
               <Link to="/Module/k" className="nav-link-custom m-2">
                 Scripts
               </Link>
-              <Link to="/contact" className="nav-link-custom m-2">
-                Contact
-              </Link>
+              <a
+                href="https://d2du.lightspeedvt.com/"
+                target="_blank"
+                className="nav-link-custom m-2"
+              >
+                Door 2 Door University
+              </a>
             </Nav>
             <Nav>
               <Link to="/adminlogin" className="nav-link-custom mx-2">
