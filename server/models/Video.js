@@ -9,6 +9,10 @@ const videoSchema = new Schema({
     type: String,
     required: true,
   },
+  day: {
+    type: String,
+    required: true,
+  },
 });
 
 const Video = model("Video", videoSchema);

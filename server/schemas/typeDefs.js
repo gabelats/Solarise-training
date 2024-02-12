@@ -20,6 +20,7 @@ const typeDefs = `
     _id: ID
     title: String
     videoLink: String
+    day: String
   
   }
 
@@ -40,7 +41,7 @@ const typeDefs = `
     addEmployee(name: String!, username: String!, password: String!): Employee
     login(email: String!, password: String!): Auth
     employeeLogin(username: String!, password: String!): Employee
-    addVideo(title: String!, videoLink: String!): Video
+    addVideo(title: String!, videoLink: String!, day: String!): Video
     removeEmployee(employeeId: ID!): Employee
     removeVideo(videoId: ID!): Video
   }
