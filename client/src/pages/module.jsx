@@ -3,15 +3,23 @@ import "./style/home.css";
 import React from "react";
 import DynamicCard from "../components/dynamic_card";
 import Table from "react-bootstrap/Table";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import schedule from "../schedule";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+//
+//
+//
 
 export default function module() {
   const today = schedule.filter((item) => item.day == useParams().day);
   const dayInfo = today[0];
+
+  const lessonLink = `/lesson/${dayInfo.day}`;
+
   return (
     <Container>
-      <div className=" pt-3 pb-3 mt-3 mb-3 border rounded ">
+      <div className=" pt-3 pb-3 mt-3 mb-3 border rounded btn-custom">
         <h2 className="mb-3">{dayInfo.title}</h2>
         <Table striped bordered hover>
           <thead>
@@ -30,40 +38,27 @@ export default function module() {
           </tbody>
         </Table>
       </div>
-      <div className="d-flex flex-row justify-content-between">
-        <DynamicCard
-          className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
-          title="Video 1"
-          description="Description for Video 1"
-        />
-        <DynamicCard
-          className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
-          title="Video 2"
-          description="Description for Video 2"
-        />
-        <DynamicCard
-          className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
-          title="Video 3"
-          description="Description for Day 3"
-        />
-      </div>
-      <div className="d-flex flex-row justify-content-around">
-        <DynamicCard
-          className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
-          title="Video 4"
-          description="Description for Day 4"
-        />
-        <DynamicCard
-          className="mb-2"
-          imageUrl="../src/assets/Full_logo.png"
-          title="Video 5"
-          description="Description for Day 5"
-        />
-      </div>
+      <Card>
+        <Card.Header className="btn-custom">Today's lessons</Card.Header>
+        <Card.Body className="background-gradient">
+          <img
+            alt=""
+            src="/assets/Asset_1.png"
+            width="50"
+            height="48"
+            className="d-inline align-top"
+          />
+          <Card.Text className="d-inline align-center m-4">
+            Every day you will have a mix of videos to watch as well as
+            in-person training.
+          </Card.Text>
+          <Link to={lessonLink}>
+            <Button variant="primary" className="d-block my-3">
+              Take me to today's videos and lessons
+            </Button>
+          </Link>
+        </Card.Body>
+      </Card>
     </Container>
   );
 }
