@@ -50,7 +50,7 @@ export default function Adminlogin() {
                 <Col>
                   <img
                     alt=""
-                    src="./src/assets/Small_logo.png"
+                    src="../public/assets/Small_logo.png"
                     width="200"
                     height="189"
                     className="d-inline-block align-top"
