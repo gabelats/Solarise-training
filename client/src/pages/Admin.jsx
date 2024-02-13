@@ -7,12 +7,20 @@ import {
   Container,
   Row,
   Col,
+  Table,
 } from "react-bootstrap";
 import React from "react";
-
+import { QUERY_EMPLOYEES } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 const username = "Placeholder";
 
 export default function admin() {
+  const { loading, data } = useQuery(QUERY_EMPLOYEES);
+  const employees = data?.employees || [];
+  console.log(employees);
+  function employeeID(id) {
+    return id.split("").slice(17);
+  }
   return (
     <div>
       <Container>
@@ -39,7 +47,27 @@ export default function admin() {
               View All Employees
             </Button>
           </Col>
-          <Col xs={9}>{/* Main section to display employee details */}</Col>
+          <Col xs={9}>
+            {/* Main section to display employee details */}
+            <Table striped>
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>Employee Name</th>
+                  <th>Employee Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                {employees.map((employee) => (
+                  <tr key={employee._id}>
+                    <td>{employeeID(employee._id)}</td>
+                    <td>{employee.name}</td>
+                    <td>{employee.username}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Col>
         </Row>
       </Container>
     </div>
