@@ -9,6 +9,7 @@ import {
   Col,
   Table,
 } from "react-bootstrap";
+
 import React from "react";
 import { QUERY_EMPLOYEES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -37,6 +38,10 @@ export default function admin() {
                 Search
               </Button>
             </Form>
+
+            <Button variant="success" className="mb-3">
+              Add Admin
+            </Button>
             <Button variant="success" className="mb-3">
               Add Employee
             </Button>
