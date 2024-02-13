@@ -9,7 +9,8 @@ import {
   Col,
   Table,
 } from "react-bootstrap";
-
+import AdminSignup from "../components/AddAdmin";
+import EmployeeSignup from "../components/AddEmployee";
 import React from "react";
 import { QUERY_EMPLOYEES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -39,12 +40,8 @@ export default function admin() {
               </Button>
             </Form>
 
-            <Button variant="success" className="mb-3">
-              Add Admin
-            </Button>
-            <Button variant="success" className="mb-3">
-              Add Employee
-            </Button>
+            <AdminSignup />
+            <EmployeeSignup />
             <Button variant="danger" className="mb-3">
               Remove Employee
             </Button>
