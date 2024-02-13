@@ -39,7 +39,6 @@ export default function admin() {
                 Search
               </Button>
             </Form>
-
             <AdminSignup />
             <EmployeeSignup />
             <Button variant="danger" className="mb-3">
