@@ -37,6 +37,18 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    addAdmin: async (parent, { name, username, email, password }, context) => {
+      if (context.user) {
+        const admin = await Admin.create({
+          name,
+          username,
+          email,
+          password,
+        });
+        return admin;
+      }
+      throw AuthenticationError;
+    },
     employeeLogin: async (parent, { username, password }) => {
       const employee = await Employee.findOne({ username });
       if (!employee) {
