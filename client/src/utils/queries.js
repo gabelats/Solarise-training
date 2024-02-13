@@ -12,6 +12,18 @@ export const QUERY_EMPLOYEES = gql`
     }
   }
 `;
+export const QUERY_EMPLOYEE = gql`
+  query employee($username: String!) {
+    employee(username: $username) {
+      _id
+      name
+      username
+      video {
+        _id
+      }
+    }
+  }
+`;
 
 export const QUERY_ME = gql`
   query me {
