@@ -8,6 +8,7 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+
 import React from "react";
 
 const username = "Placeholder";
@@ -29,6 +30,10 @@ export default function admin() {
                 Search
               </Button>
             </Form>
+
+            <Button variant="success" className="mb-3">
+              Add Admin
+            </Button>
             <Button variant="success" className="mb-3">
               Add Employee
             </Button>
