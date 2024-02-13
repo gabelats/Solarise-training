@@ -13,6 +13,30 @@ export const ADD_EMPLOYEE = gql`
   }
 `;
 
+export const ADD_ADMIN = gql`
+  mutation addAdmin(
+    $name: String!
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    addAdmin(
+      name: $name
+      username: $username
+      email: $email
+      password: $password
+    ) {
+      token
+      admin {
+        _id
+        name
+        username
+        email
+      }
+    }
+  }
+`;
+
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
