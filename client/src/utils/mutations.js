@@ -1,14 +1,11 @@
 import { gql } from "@apollo/client";
 
-export const ADD_EMPLOYEE = gql`
-  mutation addEmployee($name: String!, $username: String!, $password: String!) {
-    addEmployee(name: $name, username: $username, password: $password) {
-      token
-      employee {
-        _id
-        name
-        username
-      }
+export const EMPLOYEE_LOGIN = gql`
+  mutation EmployeeLogin($username: String!, $password: String!) {
+    employeeLogin(username: $username, password: $password) {
+      name
+      _id
+      username
     }
   }
 `;
@@ -51,18 +48,37 @@ export const LOGIN = gql`
   }
 `;
 
-export const EMPLOYEE_LOGIN = gql`
-  mutation employeeLogin($username: String!, $password: String!) {
-    employeeLogin(username: $username, password: $password) {
-      employee {
-        _id
-        name
-        username
-      }
+export const ADD_EMPLOYEE = gql`
+  mutation addEmployee($name: String!, $username: String!, $password: String!) {
+    addEmployee(name: $name, username: $username, password: $password) {
+      _id
+      name
+      username
     }
   }
 `;
 
+export const ADD_ADMIN = gql`
+  mutation addAdmin(
+    $name: String!
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    addAdmin(
+      name: $name
+      username: $username
+      email: $email
+      password: $password
+    ) {
+      token
+      _id
+      name
+      username
+      email
+    }
+  }
+`;
 export const ADD_VIDEO = gql`
   mutation addVideo($title: String!, $videoLink: String!) {
     addVideo(title: $title, videoLink: $videoLink) {
