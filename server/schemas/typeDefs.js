@@ -38,6 +38,7 @@ const typeDefs = `
   }
 
   type Mutation {
+    addAdmin(name: String! username: String! email: String! password: String!): Admin
     addEmployee(name: String!, username: String!, password: String!): Employee
     login(email: String!, password: String!): Auth
     employeeLogin(username: String!, password: String!): Employee

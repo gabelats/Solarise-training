@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_EMPLOYEES = gql`
-  query user($username: String!) {
-    user(username: $username) {
+  query employees {
+    employees {
       _id
+      name
       username
-      email
       video {
         _id
       }
