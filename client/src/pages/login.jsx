@@ -56,9 +56,7 @@ const Login = () => {
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-4">
             <div className="login-wrap p-0">
-              <h3 className="mb-4 text-center">
-                Admin Login : Employee Training
-              </h3>
+              <h3 className="mb-4 text-center">Employee Training</h3>
               <form
                 onSubmit={handleSubmit}
                 className="signup-form"
@@ -66,12 +64,12 @@ const Login = () => {
               >
                 <div className="form-group">
                   <input
-                    id="email"
-                    type="email"
-                    name="email"
+                    id="username"
+                    type="text"
+                    name="username"
                     className="form-control"
-                    placeholder="Email"
-                    value={formState.email}
+                    placeholder="Username"
+                    value={formState.username}
                     onChange={handleChange}
                     required
                   />
