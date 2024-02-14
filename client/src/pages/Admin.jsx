@@ -12,6 +12,7 @@ import {
 import AdminSignup from "../components/AddAdmin";
 import EmployeeSignup from "../components/AddEmployee";
 import RemoveEmployee from "../components/RemoveEmployee";
+import { useState, useEffect } from "react";
 import React from "react";
 import { QUERY_EMPLOYEES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -19,8 +20,16 @@ import Auth from "../utils/auth";
 const username = "Placeholder";
 
 export default function admin() {
+  // const [tableState, setTableState] = useState({});
+  const [employees, setEmployees] = useState([]);
+
   const { loading, data } = useQuery(QUERY_EMPLOYEES);
-  const employees = data?.employees || [];
+  // const employees = data?.employees || [];
+  useEffect(() => {
+    if (data) {
+      setEmployees(data.employees);
+    }
+  }, [loading, data]);
   console.log(employees);
   function employeeID(id) {
     return id.split("").slice(17);
@@ -44,8 +53,14 @@ export default function admin() {
                 </Button>
               </Form>
               <AdminSignup />
-              <EmployeeSignup />
-              <RemoveEmployee />
+              <EmployeeSignup
+                employees={employees}
+                setEmployees={setEmployees}
+              />
+              <RemoveEmployee
+                employees={employees}
+                setEmployees={setEmployees}
+              />
               <Button variant="info" className="mb-3">
                 View All Employees
               </Button>

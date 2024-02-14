@@ -16,7 +16,7 @@ import { ADD_EMPLOYEE } from "../utils/mutations";
 
 const username = "Placeholder";
 
-const EmployeeSignup = () => {
+const EmployeeSignup = ({ employees, setEmployees }) => {
   const [formState, setFormState] = useState({
     name: "",
     username: "",
@@ -43,6 +43,12 @@ const EmployeeSignup = () => {
       const { data } = await addEmployee({
         variables: { ...formState },
       });
+<<<<<<< HEAD
+      const newEmployee = data.addEmployee;
+      setEmployees([...employees, newEmployee]);
+      setModalFormState(false);
+=======
+>>>>>>> main
     } catch (e) {
       console.error(e);
     }
@@ -87,6 +93,17 @@ const EmployeeSignup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
+<<<<<<< HEAD
+              <Button
+                variant="primary"
+                style={{ cursor: "pointer" }}
+                type="submit"
+                onClick={handleClose}
+              >
+                Submit
+              </Button>
+=======
+>>>>>>> main
             </form>
           </Modal.Body>
           <Modal.Footer>

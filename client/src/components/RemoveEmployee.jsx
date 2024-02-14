@@ -14,11 +14,11 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { REMOVE_EMPLOYEE } from "../utils/mutations";
 
-const RemoveEmployee = () => {
+const RemoveEmployee = ({ employees, setEmployees }) => {
   const [employeeFormState, setemployeeFormState] = useState({
     username: "",
   });
-  const [deleteEmployee, { error }] = useMutation(REMOVE_EMPLOYEE);
+  const [deleteEmployee, { data, error }] = useMutation(REMOVE_EMPLOYEE);
 
   const [modalFormState, setModalFormState] = useState(false);
 
@@ -42,8 +42,14 @@ const RemoveEmployee = () => {
       const { data } = await deleteEmployee({
         variables: { ...employeeFormState },
       });
-    } catch (err) {
-      console.error(err);
+      // const removeEmployee = data.deleteEmployee;
+      // // const updatedArray = employees.filter((keep) => {
+      // //   keep.username !== removeEmployee.username;
+      // // });
+      // setEmployees([removeEmployee, ...employees]);
+      setModalFormState(false);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -52,7 +58,7 @@ const RemoveEmployee = () => {
       className="modal show"
       style={{ display: "block", position: "initial" }}
     >
-      <Button variant="success" className="mb-3" onClick={handleShow}>
+      <Button variant="danger" className="mb-3" onClick={handleShow}>
         Remove Employee
       </Button>
       <Modal show={modalFormState} onHide={handleClose}>

@@ -30,6 +30,44 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                 className="d-inline-block align-center img2"
               />{" "}
             </Navbar.Brand>
+<<<<<<< HEAD
+            <Nav variant="pills" defaultActiveKey="home" className="mx-4">
+              {Auth.loggedIn() == true ? (
+                <Link to="/Admin" className="nav-link-custom m-2">
+                  Admin Dashboard
+                </Link>
+              ) : (
+                <div></div>
+              )}
+              <Link to="/" className="nav-link-custom m-2">
+                Home
+              </Link>
+              <Link to="/Module/k" className="nav-link-custom m-2">
+                Scripts
+              </Link>
+              <a
+                href="https://d2du.lightspeedvt.com/"
+                target="_blank"
+                className="nav-link-custom m-2"
+              >
+                Door 2 Door University
+              </a>
+            </Nav>
+            <Nav>
+              {Auth.loggedIn() == true ? (
+                <button onClick={adminLogout} className="btn btn-custom">
+                  Admin Logout
+                </button>
+              ) : (
+                <Link to="/adminlogin" className="nav-link-custom">
+                  Admin Login
+                </Link>
+              )}
+              <button onClick={userLogout} className="btn btn-custom mx-5">
+                Logout
+              </button>
+            </Nav>
+=======
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav
@@ -82,6 +120,7 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                 )}
               </Nav>
             </Navbar.Collapse>
+>>>>>>> main
           </Container>
         </Navbar>
       </header>
