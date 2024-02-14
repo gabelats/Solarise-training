@@ -28,24 +28,23 @@ const EmployeeSignup = () => {
   const handleClose = () => setModalFormState(false);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { employee, value } = event.target;
 
     setFormState({
       ...formState,
-      [name]: value,
+      [employee]: value,
     });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const { data } = await addEmployee({
         variables: { ...formState },
       });
-      setModalFormState(false);
     } catch (e) {
       console.error(e);
-      console.error(error);
     }
   };
   return (
@@ -61,6 +60,7 @@ const EmployeeSignup = () => {
           <Modal.Header closeButton>
             <Modal.Title>Create New Employee</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
             <form onSubmit={handleFormSubmit}>
               <input
@@ -83,19 +83,22 @@ const EmployeeSignup = () => {
                 className="form-input"
                 placeholder="******"
                 name="password"
-                type="text"
+                type="password"
                 value={formState.password}
                 onChange={handleChange}
               />
-              <Button
-                variant="primary"
-                style={{ cursor: "pointer" }}
-                type="submit"
-              >
-                Submit
-              </Button>
             </form>
           </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary">Close</Button>
+            <Button
+              variant="primary"
+              style={{ cursor: "pointer" }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>
