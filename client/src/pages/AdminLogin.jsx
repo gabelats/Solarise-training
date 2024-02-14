@@ -45,7 +45,7 @@ const Adminlogin = () => {
                 <Col>
                   <img
                     alt=""
-                    src="../public/assets/Small_logo.png"
+                    src="./assets/Small_logo.png"
                     width="200"
                     height="189"
                     className="d-inline-block align-top"
