@@ -11,6 +11,11 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
     Auth.logout();
   };
 
+  const userLogout = (event) => {
+    event.preventDefault();
+    setUserLoggedIn(false);
+  };
+
   return (
     <div>
       <header>
