@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./header.css";
 import { Link, useLocation } from "react-router-dom";
-
+import Auth from "../../utils/auth";
 function Header() {
   const currentPage = useLocation().pathname;
   return (
