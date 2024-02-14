@@ -85,10 +85,10 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    removeEmployee: async (parent, { employeeId }, context) => {
+    removeEmployee: async (parent, { username }, context) => {
       if (context.user) {
         const employee = await Employee.findOneAndDelete({
-          _id: employeeId,
+          username: username,
         });
         return employee;
       }

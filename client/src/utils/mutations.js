@@ -66,10 +66,8 @@ export const ADD_VIDEO = gql`
 `;
 
 export const REMOVE_EMPLOYEE = gql`
-  mutation removeEmployee($employeeId: ID!) {
-    removeEmployee(employeeId: $employeeId) {
-      _id
-      name
+  mutation removeEmployee($username: String!) {
+    removeEmployee(username: $username) {
       username
     }
   }
