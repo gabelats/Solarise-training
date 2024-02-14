@@ -17,7 +17,6 @@ const Login = ({ userLoggedIn, setUserLoggedIn }) => {
     const { name, value } = event.target;
     setFormState({ ...formState, [name]: value });
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
