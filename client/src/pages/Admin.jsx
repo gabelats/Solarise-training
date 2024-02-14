@@ -40,7 +40,6 @@ export default function admin() {
                 Search
               </Button>
             </Form>
-
             <AdminSignup />
             <EmployeeSignup />
             <RemoveEmployee />
