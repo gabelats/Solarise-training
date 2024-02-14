@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import React from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { REMOVE_EMPLOYEE } from "../utils/mutations";
 
 const RemoveEmployee = () => {
@@ -19,7 +19,7 @@ const RemoveEmployee = () => {
     name: "",
     username: "",
   });
-  const [deleteEmployee, { error, data }] = useMutation(REMOVE_EMPLOYEE);
+  const [deleteEmployee, { error }] = useMutation(REMOVE_EMPLOYEE);
 
   const [modalFormState, setModalFormState] = useState(false);
 
@@ -37,13 +37,14 @@ const RemoveEmployee = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("test");
+    console.log(employeeFormState);
     try {
       const { data } = await deleteEmployee({
         variables: { ...employeeFormState },
       });
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     }
   };
 
@@ -65,14 +66,6 @@ const RemoveEmployee = () => {
             <form onSubmit={handleFormSubmit}>
               <input
                 className="form-input"
-                placeholder="Employees Name"
-                name="name"
-                type="text"
-                value={employeeFormState.name}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
                 placeholder="Employees Username"
                 name="username"
                 type="text"
@@ -82,13 +75,13 @@ const RemoveEmployee = () => {
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary">Close</Button>
             <Button
               variant="primary"
               style={{ cursor: "pointer" }}
               type="submit"
+              onClick={handleFormSubmit}
             >
-              Submit
+              Delete
             </Button>
           </Modal.Footer>
         </Modal.Dialog>
