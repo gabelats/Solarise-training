@@ -16,7 +16,7 @@ import { ADD_EMPLOYEE } from "../utils/mutations";
 
 const username = "Placeholder";
 
-const EmployeeSignup = () => {
+const EmployeeSignup = ({ employees, setEmployees }) => {
   const [formState, setFormState] = useState({
     name: "",
     username: "",
@@ -42,6 +42,8 @@ const EmployeeSignup = () => {
       const { data } = await addEmployee({
         variables: { ...formState },
       });
+      const newEmployee = data.addEmployee;
+      setEmployees([...employees, newEmployee]);
       setModalFormState(false);
     } catch (e) {
       console.error(e);
