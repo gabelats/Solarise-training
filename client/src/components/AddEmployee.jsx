@@ -60,7 +60,6 @@ const EmployeeSignup = () => {
           <Modal.Header closeButton>
             <Modal.Title>Create New Employee</Modal.Title>
           </Modal.Header>
-
           <Modal.Body>
             <form onSubmit={handleFormSubmit}>
               <input
@@ -96,7 +95,6 @@ const EmployeeSignup = () => {
               </Button>
             </form>
           </Modal.Body>
-          <Modal.Footer></Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>
