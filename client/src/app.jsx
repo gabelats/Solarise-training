@@ -36,12 +36,12 @@ function App() {
     return (
       <ApolloProvider client={client}>
         <div>
-          <Header />
+          <Header
+            userLoggedIn={userLoggedIn}
+            setUserLoggedIn={setUserLoggedIn}
+          />
           <div className="container">
-            <Outlet
-              userLoggedIn={userLoggedIn}
-              setUserLoggedIn={setUserLoggedIn}
-            />
+            <Outlet />
           </div>
           <Footer />
         </div>
