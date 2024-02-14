@@ -71,18 +71,16 @@ const RemoveEmployee = () => {
                 value={employeeFormState.username}
                 onChange={handleChange}
               />
+              <Button
+                variant="primary"
+                style={{ cursor: "pointer" }}
+                type="submit"
+                onClick={handleClose}
+              >
+                Delete
+              </Button>
             </form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="primary"
-              style={{ cursor: "pointer" }}
-              type="submit"
-              onClick={handleFormSubmit}
-            >
-              Delete
-            </Button>
-          </Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>
