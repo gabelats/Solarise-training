@@ -42,6 +42,7 @@ const EmployeeSignup = () => {
       const { data } = await addEmployee({
         variables: { ...formState },
       });
+      setModalFormState(false);
     } catch (e) {
       console.error(e);
       console.error(error);
