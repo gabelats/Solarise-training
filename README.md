@@ -11,7 +11,7 @@ A logged in admin will be taken to the admin page where they will be able to add
 ## Screenshot
 
 ![Admin Page](./client/public/assets/Admin-Screenshot.jpg)
-![Home Page](./client/public/assets/)
+![Home Page](./client/public/assets/Home-Screenshot.jpg)
 
 ## Credits
 
