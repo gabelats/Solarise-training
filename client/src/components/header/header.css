@@ -19,3 +19,12 @@
   width: 175px;
   height: auto;
 }
+
+.btn-custom {
+  background-color: #f8932d;
+  color: black;
+}
+.btn-custom:hover {
+  background-color: #fc9935;
+  color: black;
+}

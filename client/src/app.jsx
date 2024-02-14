@@ -10,7 +10,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-
+import Auth from "./utils/auth.js";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -31,24 +31,29 @@ const client = new ApolloClient({
 });
 
 function App() {
-  //                     !change to default false before deploy!
-  const [loggedIn, setLoggedIn] = useState(true);
-
-  return (
-    <ApolloProvider client={client}>
-      {loggedIn ? (
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  if (Auth.loggedIn() || userLoggedIn == true) {
+    return (
+      <ApolloProvider client={client}>
         <div>
           <Header />
           <div className="container">
-            <Outlet loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Outlet
+              userLoggedIn={userLoggedIn}
+              setUserLoggedIn={setUserLoggedIn}
+            />
           </div>
           <Footer />
         </div>
-      ) : (
-        <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      )}
-    </ApolloProvider>
-  );
+      </ApolloProvider>
+    );
+  } else {
+    return (
+      <ApolloProvider client={client}>
+        <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
+      </ApolloProvider>
+    );
+  }
 }
 
 export default App;
