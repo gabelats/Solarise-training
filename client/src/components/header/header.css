@@ -28,3 +28,9 @@
   background-color: #fc9935;
   color: black;
 }
+
+.vertical-line {
+  border-left: 2px solid #ccc;
+  height: 50px;
+  margin: 0 10px;
+}
