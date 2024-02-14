@@ -4,8 +4,14 @@ import Navbar from "react-bootstrap/Navbar";
 import "./header.css";
 import { Link, useLocation } from "react-router-dom";
 import Auth from "../../utils/auth";
-function Header() {
+function Header({ userLoggedIn, setUserLoggedIn }) {
   const currentPage = useLocation().pathname;
+
+  const logout = (event) => {
+    event.preventDefault();
+    setUserLoggedIn(false);
+    Auth.logout();
+  };
   return (
     <div>
       <header>
@@ -36,12 +42,24 @@ function Header() {
               </a>
             </Nav>
             <Nav>
-              <Link to="/adminlogin" className="nav-link-custom mx-2">
-                Admin Login
-              </Link>
-              <Link eventKey={2} to="/Login" className="nav-link-custom">
-                Employee Login
-              </Link>
+              {Auth.loggedIn() ? (
+                <button onClick={logout} className="btn btn-custom">
+                  Admin Logout
+                </button>
+              ) : (
+                <Link eventkey={2} to="/Login" className="nav-link-custom">
+                  Admin Login
+                </Link>
+              )}
+              {userLoggedIn == true ? (
+                <button onClick={logout} className="btn btn-custom">
+                  Logout
+                </button>
+              ) : (
+                <Link eventkey={2} to="/Login" className="nav-link-custom mx-4">
+                  Employee Login
+                </Link>
+              )}
             </Nav>
           </Container>
         </Navbar>
