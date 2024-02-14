@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import AdminSignup from "../components/AddAdmin";
 import EmployeeSignup from "../components/AddEmployee";
+import RemoveEmployee from "../components/RemoveEmployee";
 import React from "react";
 import { QUERY_EMPLOYEES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
@@ -42,9 +43,7 @@ export default function admin() {
 
             <AdminSignup />
             <EmployeeSignup />
-            <Button variant="danger" className="mb-3">
-              Remove Employee
-            </Button>
+            <RemoveEmployee />
             <Button variant="info" className="mb-3">
               View All Employees
             </Button>
