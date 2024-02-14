@@ -9,9 +9,8 @@ import Col from "react-bootstrap/Col";
 import DayProgress from "../components/day-progress";
 import { useQuery } from "@apollo/client";
 import { QUERY_VIDEOS } from "../utils/queries";
-//
-//
-export default function lesson() {
+
+export default function Lesson() {
   const today = schedule.filter((item) => item.day == useParams().day);
   const dayInfo = today[0];
   const { loading, data } = useQuery(QUERY_VIDEOS);
@@ -25,28 +24,28 @@ export default function lesson() {
   return (
     <Container>
       <Row>
-        <Col>
-          <DayProgress dayInfo={dayInfo} />
-        </Col>
-        <Col className="col-8 my-4">
-          {todaysVideos.map((thisVideo) => (
+        <DayProgress dayInfo={dayInfo} />
+      </Row>
+      <Row>
+        {todaysVideos.map((thisVideo) => (
+          <Col key={thisVideo.id} xs={12} md={6} lg={4} className="my-4">
             <div>
-              <div className="embed-responsive embed-responsive-16by9">
-                <iframe
-                  src={thisVideo.videoLink}
-                  width="100%"
-                  height="480"
-                  allow="autoplay"
-                ></iframe>
-              </div>
-              <Card>
+              <Card className="d-flex flex-column align-items-center p-3 mb-4 justify-content-center">
+                <div className="embed-responsive embed-responsive-16by9">
+                  <iframe
+                    title={thisVideo.title}
+                    src={thisVideo.videoLink}
+                    className="embed-responsive-item"
+                    allow="autoplay"
+                  ></iframe>
+                </div>
                 <Card.Header>
                   <h2>{thisVideo.title}</h2>
                 </Card.Header>
               </Card>
             </div>
-          ))}
-        </Col>
+          </Col>
+        ))}
       </Row>
     </Container>
   );

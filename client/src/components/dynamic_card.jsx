@@ -11,7 +11,7 @@ function DynamicCard({ imageUrl, title, description }) {
   }
   return (
     <div className="mb-4 mt-4">
-      <Card border="dark" style={{ width: "25rem" }}>
+      <Card border="dark" style={{ width: "100%" }}>
         <Card.Img className="p-2" variant="top" src={imageUrl} alt={title} />
         <Card.Body className="bg-light border">
           <Card.Title>{title}</Card.Title>

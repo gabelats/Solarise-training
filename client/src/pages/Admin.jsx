@@ -25,6 +25,7 @@ export default function admin() {
   function employeeID(id) {
     return id.split("").slice(17);
   }
+
   if (Auth.loggedIn() == true) {
     return (
       <div>
