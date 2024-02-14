@@ -39,6 +39,13 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                   Navbar.Collapse ? "flex-column flex-lg-row " : "flex-row"
                 }
               >
+                {Auth.loggedIn() == true ? (
+                  <Link to="/Admin" className="nav-link-custom m-2">
+                    Admin Dashboard
+                  </Link>
+                ) : (
+                  <div></div>
+                )}
                 <Link to="/" className="nav-link-custom m-2">
                   Home
                 </Link>
