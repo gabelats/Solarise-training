@@ -28,7 +28,7 @@ export default function admin() {
     <div>
       <Container>
         <Row>
-          <Col xs={3} className="d-flex flex-column">
+          <Col xs={12} md={3} className="d-flex flex-column">
             <h2>Welcome, {username}</h2>
             <Form inline>
               <FormControl
@@ -48,7 +48,7 @@ export default function admin() {
               View All Employees
             </Button>
           </Col>
-          <Col xs={9}>
+          <Col xs={12} md={9}>
             {/* Main section to display employee details */}
             <Table striped>
               <thead>
