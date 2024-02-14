@@ -12,12 +12,14 @@ import {
 import AdminSignup from "../components/AddAdmin";
 import EmployeeSignup from "../components/AddEmployee";
 import RemoveEmployee from "../components/RemoveEmployee";
+import { useState } from "react";
 import React from "react";
 import { QUERY_EMPLOYEES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 const username = "Placeholder";
 
 export default function admin() {
+  const [tableState, setTableState] = useState({});
   const { loading, data } = useQuery(QUERY_EMPLOYEES);
   const employees = data?.employees || [];
   console.log(employees);

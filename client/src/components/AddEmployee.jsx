@@ -91,6 +91,7 @@ const EmployeeSignup = () => {
                 variant="primary"
                 style={{ cursor: "pointer" }}
                 type="submit"
+                onClick={handleClose}
               >
                 Submit
               </Button>
