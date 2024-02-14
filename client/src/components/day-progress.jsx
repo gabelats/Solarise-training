@@ -9,7 +9,7 @@ export default function DayProgress({ dayInfo }) {
   return (
     <Card
       className="background-gradient"
-      style={{ width: "18rem", marginTop: "2rem" }}
+      style={{ width: "100%", marginTop: "2rem" }}
     >
       <Card.Body>
         <Card.Title>{dayInfo.title}</Card.Title>
