@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ userLoggedIn, setUserLoggedIn }) => {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error }] = useMutation(EMPLOYEE_LOGIN);
   const navigate = useNavigate();
@@ -24,8 +24,9 @@ const Login = () => {
       const { data } = await login({
         variables: { ...formState },
       });
+      setUserLoggedIn(true);
       console.log("Login success:", data);
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       console.error("Login error:", err);
     }

@@ -47,11 +47,10 @@ export const ADD_ADMIN = gql`
       email: $email
       password: $password
     ) {
-      token
-      _id
       name
-      username
       email
+      password
+      username
     }
   }
 `;

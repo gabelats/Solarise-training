@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const Adminlogin = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -24,6 +25,7 @@ const Adminlogin = () => {
       const { data } = await login({
         variables: { ...formState },
       });
+      Auth.login(data.login.token);
       console.log("Login success:", data);
       navigate("/Admin");
     } catch (err) {
