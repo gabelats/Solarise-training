@@ -43,7 +43,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     employeeLogin(username: String!, password: String!): Employee
     addVideo(title: String!, videoLink: String!, day: String!): Video
-    removeEmployee(employeeId: ID!): Employee
+    removeEmployee(username: String!): Employee
     removeVideo(videoId: ID!): Video
   }
 `;

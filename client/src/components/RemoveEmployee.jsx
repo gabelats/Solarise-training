@@ -4,101 +4,89 @@ import {
   Form,
   FormControl,
   Button,
-  Container,
   Modal,
+  Container,
   Row,
   Col,
 } from "react-bootstrap";
 import { useState } from "react";
 import React from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_EMPLOYEE } from "../utils/mutations";
+import { REMOVE_EMPLOYEE } from "../utils/mutations";
 
-const username = "Placeholder";
-
-const EmployeeSignup = () => {
-  const [formState, setFormState] = useState({
+const RemoveEmployee = () => {
+  const [employeeFormState, setemployeeFormState] = useState({
     name: "",
     username: "",
-    password: "",
   });
-  const [addEmployee, { error, data }] = useMutation(ADD_EMPLOYEE);
+  const [deleteEmployee, { error }] = useMutation(REMOVE_EMPLOYEE);
+
   const [modalFormState, setModalFormState] = useState(false);
+
   const handleShow = () => setModalFormState(true);
   const handleClose = () => setModalFormState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({
-      ...formState,
+    setemployeeFormState({
+      ...employeeFormState,
       [name]: value,
     });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log("test");
+    console.log(employeeFormState);
     try {
-      const { data } = await addEmployee({
-        variables: { ...formState },
+      const { data } = await deleteEmployee({
+        variables: { ...employeeFormState },
       });
-      setModalFormState(false);
-    } catch (e) {
-      console.error(e);
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
+
   return (
     <div
       className="modal show"
       style={{ display: "block", position: "initial" }}
     >
       <Button variant="success" className="mb-3" onClick={handleShow}>
-        Add Employee
+        Remove Employee
       </Button>
       <Modal show={modalFormState} onHide={handleClose}>
         <Modal.Dialog>
           <Modal.Header closeButton>
-            <Modal.Title>Create New Employee</Modal.Title>
+            <Modal.Title>Remove Employee</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
             <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Employees Name"
-                name="name"
-                type="text"
-                value={formState.name}
-                onChange={handleChange}
-              />
               <input
                 className="form-input"
                 placeholder="Employees Username"
                 name="username"
                 type="text"
-                value={formState.username}
+                value={employeeFormState.username}
                 onChange={handleChange}
               />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="text"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <Button
-                variant="primary"
-                style={{ cursor: "pointer" }}
-                type="submit"
-              >
-                Submit
-              </Button>
             </form>
           </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="primary"
+              style={{ cursor: "pointer" }}
+              type="submit"
+              onClick={handleFormSubmit}
+            >
+              Delete
+            </Button>
+          </Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>
   );
 };
-export default EmployeeSignup;
+export default RemoveEmployee;
