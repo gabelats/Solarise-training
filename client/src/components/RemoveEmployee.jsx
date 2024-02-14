@@ -16,7 +16,6 @@ import { REMOVE_EMPLOYEE } from "../utils/mutations";
 
 const RemoveEmployee = () => {
   const [employeeFormState, setemployeeFormState] = useState({
-    name: "",
     username: "",
   });
   const [deleteEmployee, { error }] = useMutation(REMOVE_EMPLOYEE);
