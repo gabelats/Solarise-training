@@ -11,8 +11,6 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
     Auth.logout();
   };
 
-<<<<<<< HEAD
-=======
   const userLogout = (event) => {
     event.preventDefault();
     setUserLoggedIn(false);
@@ -57,7 +55,7 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
               </Nav>
               <Nav className="m-2">
                 {Auth.loggedIn() ? (
-                  <button onClick={logout} className="btn btn-custom">
+                  <button onClick={adminLogout} className="btn btn-custom">
                     Admin Logout
                   </button>
                 ) : (
@@ -70,7 +68,7 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                   </Link>
                 )}
                 {userLoggedIn == true ? (
-                  <button onClick={logout} className="btn btn-custom">
+                  <button onClick={userLogout} className="btn btn-custom">
                     Logout
                   </button>
                 ) : (
