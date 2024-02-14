@@ -28,11 +28,11 @@ const EmployeeSignup = ({ employees, setEmployees }) => {
   const handleClose = () => setModalFormState(false);
 
   const handleChange = (event) => {
-    const { employee, value } = event.target;
+    const { name, value } = event.target;
 
     setFormState({
       ...formState,
-      [employee]: value,
+      [name]: value,
     });
   };
 
@@ -90,18 +90,17 @@ const EmployeeSignup = ({ employees, setEmployees }) => {
                 value={formState.password}
                 onChange={handleChange}
               />
+              <Button variant="secondary">Close</Button>
+              <Button
+                variant="primary"
+                style={{ cursor: "pointer" }}
+                type="submit"
+                onClick={handleClose}
+              >
+                Submit
+              </Button>
             </form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary">Close</Button>
-            <Button
-              variant="primary"
-              style={{ cursor: "pointer" }}
-              type="submit"
-            >
-              Submit
-            </Button>
-          </Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>
