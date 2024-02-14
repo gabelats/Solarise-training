@@ -37,7 +37,7 @@ export default function Home() {
   if (Auth.loggedIn() || userLoggedIn == true) {
     return (
       <Container>
-        <div className="background-gradient pt-3 pb-3 mt-3 mb-3 border rounded border-dark">
+        <div className="background-gradient p-3 mt-3 mb-3 border rounded border-dark">
           <h2 className="mb-3">Welcome to Solarise Solar Employee Training</h2>
           <h4>Instructions:</h4>
           <ul>
@@ -55,45 +55,49 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <div className="d-flex flex-row justify-content-between">
-          <DynamicCard
-            className="mb-2"
-            imageUrl="/assets/Full_logo.png"
-            title="Module Day 1"
-            description="Description for Day 1"
-          />
-          <DynamicCard
-            className="mb-2"
-            imageUrl="/assets/Full_logo.png"
-            title="Module Day 2"
-            description="Description for Day 2"
-          />
-          <DynamicCard
-            className="mb-2"
-            imageUrl="/assets/Full_logo.png"
-            title="Module Day 3"
-            description="Description for Day 3"
-          />
-        </div>
-        <div className="d-flex flex-row justify-content-between">
-          <DynamicCard
-            className="mb-2"
-            imageUrl="/assets/Full_logo.png"
-            title="Module Day 4"
-            description="Description for Day 4"
-          />
-          <DynamicCard
-            className="mb-2"
-            imageUrl="/assets/Full_logo.png"
-            title="Module Day 5"
-            description="Description for Day 5"
-          />
-          <DynamicCard
-            className="mb-2"
-            imageUrl="/assets/Full_logo.png"
-            title="Review/Homework"
-            description="Description Homework"
-          />
+        <div className="row">
+          <div className="col-md-4 mb-2">
+            <DynamicCard
+              imageUrl="/assets/Full_logo.png"
+              title="Module Day 1"
+              description="Description for Day 1"
+            />
+          </div>
+          <div className="col-md-4 mb-2">
+            <DynamicCard
+              imageUrl="/assets/Full_logo.png"
+              title="Module Day 2"
+              description="Description for Day 2"
+            />
+          </div>
+          <div className="col-md-4 mb-2">
+            <DynamicCard
+              imageUrl="/assets/Full_logo.png"
+              title="Module Day 3"
+              description="Description for Day 3"
+            />
+          </div>
+          <div className="col-md-4 mb-2">
+            <DynamicCard
+              imageUrl="/assets/Full_logo.png"
+              title="Module Day 4"
+              description="Description for Day 4"
+            />
+          </div>
+          <div className="col-md-4 mb-2">
+            <DynamicCard
+              imageUrl="/assets/Full_logo.png"
+              title="Module Day 5"
+              description="Description for Day 5"
+            />
+          </div>
+          <div className="col-md-4 mb-2">
+            <DynamicCard
+              imageUrl="/assets/Full_logo.png"
+              title="Review/Homework"
+              description="Description Homework"
+            />
+          </div>
         </div>
       </Container>
     );

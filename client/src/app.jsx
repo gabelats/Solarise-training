@@ -31,6 +31,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+<<<<<<< HEAD
   const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   return (
@@ -39,6 +40,21 @@ function App() {
         <Header setUserLoggedIn={setUserLoggedIn} />
         <div className="container">
           <Outlet />
+=======
+  const [userLoggedIn, setUserLoggedIn] = useState(true);
+  if (Auth.loggedIn() || userLoggedIn == true) {
+    return (
+      <ApolloProvider client={client}>
+        <div>
+          <Header
+            userLoggedIn={userLoggedIn}
+            setUserLoggedIn={setUserLoggedIn}
+          />
+          <div className="container">
+            <Outlet />
+          </div>
+          <Footer />
+>>>>>>> main
         </div>
         <Footer />
       </div>
