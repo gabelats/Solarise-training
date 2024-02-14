@@ -28,26 +28,29 @@ const EmployeeSignup = ({ employees, setEmployees }) => {
   const handleClose = () => setModalFormState(false);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { employee, value } = event.target;
 
     setFormState({
       ...formState,
-      [name]: value,
+      [employee]: value,
     });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const { data } = await addEmployee({
         variables: { ...formState },
       });
+<<<<<<< HEAD
       const newEmployee = data.addEmployee;
       setEmployees([...employees, newEmployee]);
       setModalFormState(false);
+=======
+>>>>>>> main
     } catch (e) {
       console.error(e);
-      console.error(error);
     }
   };
   return (
@@ -63,6 +66,7 @@ const EmployeeSignup = ({ employees, setEmployees }) => {
           <Modal.Header closeButton>
             <Modal.Title>Create New Employee</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
             <form onSubmit={handleFormSubmit}>
               <input
@@ -85,10 +89,11 @@ const EmployeeSignup = ({ employees, setEmployees }) => {
                 className="form-input"
                 placeholder="******"
                 name="password"
-                type="text"
+                type="password"
                 value={formState.password}
                 onChange={handleChange}
               />
+<<<<<<< HEAD
               <Button
                 variant="primary"
                 style={{ cursor: "pointer" }}
@@ -97,8 +102,20 @@ const EmployeeSignup = ({ employees, setEmployees }) => {
               >
                 Submit
               </Button>
+=======
+>>>>>>> main
             </form>
           </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary">Close</Button>
+            <Button
+              variant="primary"
+              style={{ cursor: "pointer" }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>

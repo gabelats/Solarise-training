@@ -28,6 +28,7 @@ export default function Home() {
         <div className="col-md-4 mb-2">
           <DynamicCard
             imageUrl="/assets/Full_logo.png"
+            gi
             title="Module Day 1"
             description="Description for Day 1"
           />

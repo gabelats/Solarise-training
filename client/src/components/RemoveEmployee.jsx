@@ -16,7 +16,6 @@ import { REMOVE_EMPLOYEE } from "../utils/mutations";
 
 const RemoveEmployee = ({ employees, setEmployees }) => {
   const [employeeFormState, setemployeeFormState] = useState({
-    name: "",
     username: "",
   });
   const [deleteEmployee, { data, error }] = useMutation(REMOVE_EMPLOYEE);
@@ -78,18 +77,16 @@ const RemoveEmployee = ({ employees, setEmployees }) => {
                 value={employeeFormState.username}
                 onChange={handleChange}
               />
+              <Button
+                variant="primary"
+                style={{ cursor: "pointer" }}
+                type="submit"
+                onClick={handleClose}
+              >
+                Delete
+              </Button>
             </form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="primary"
-              style={{ cursor: "pointer" }}
-              type="submit"
-              onClick={handleFormSubmit}
-            >
-              Delete
-            </Button>
-          </Modal.Footer>
         </Modal.Dialog>
       </Modal>
     </div>
