@@ -21,6 +21,6 @@ A logged in admin will be taken to the admin page where they will be able to add
 
 ## Links
 
-Github Repo:
+Github Repo: https://github.com/gabelats/Solarise-training
 
-Deployed site:
+Deployed site: https://cryptic-forest-58869-d12e210f5115.herokuapp.com
