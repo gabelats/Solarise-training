@@ -23,7 +23,6 @@ const Login = ({ userLoggedIn, setUserLoggedIn }) => {
       const { data } = await login({
         variables: { ...formState },
       });
-      setUserLoggedIn(true);
       console.log("Login success:", data);
       navigate("/");
     } catch (err) {
