@@ -61,30 +61,13 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                 </a>
               </Nav>
               <Nav className="m-2">
-                {Auth.loggedIn() ? (
-                  <button onClick={adminLogout} className="btn btn-custom">
-                    Admin Logout
-                  </button>
-                ) : (
-                  <Link
-                    eventkey={2}
-                    to="/adminlogin"
-                    className="m-2 nav-link-custom"
-                  >
-                    Admin Login
-                  </Link>
-                )}
-                {userLoggedIn == true ? (
-                  <button onClick={userLogout} className="btn btn-custom">
+                {userLoggedIn ? (
+                  <button onClick={handleLogout} className="btn btn-custom">
                     Logout
                   </button>
                 ) : (
-                  <Link
-                    eventkey={2}
-                    to="/login"
-                    className="nav-link-custom m-2 "
-                  >
-                    Employee Login
+                  <Link to="/login" className="nav-link-custom m-2 ">
+                    Login
                   </Link>
                 )}
               </Nav>

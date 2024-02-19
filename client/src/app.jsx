@@ -1,6 +1,5 @@
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
-import Login from "./pages/login.jsx";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import {
@@ -9,8 +8,8 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+// import "client/src/app.css";
 import { setContext } from "@apollo/client/link/context";
-import Auth from "./utils/auth.js";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -36,9 +35,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
-        <Header setUserLoggedIn={setUserLoggedIn} />
+        <Header userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
         <div className="container">
-          <Outlet />
+          <Outlet setUserLoggedIn={setUserLoggedIn} />
         </div>
         <Footer />
       </div>
