@@ -55,11 +55,12 @@ export const ADD_ADMIN = gql`
   }
 `;
 export const ADD_VIDEO = gql`
-  mutation addVideo($title: String!, $videoLink: String!) {
-    addVideo(title: $title, videoLink: $videoLink) {
+  mutation addVideo($title: String!, $videoLink: String!, $day: String!) {
+    addVideo(title: $title, videoLink: $videoLink, day: $day) {
       _id
       title
       videoLink
+      day
     }
   }
 `;

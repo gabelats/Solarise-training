@@ -1,6 +1,4 @@
 import {
-  Navbar,
-  Nav,
   Form,
   FormControl,
   Button,
@@ -12,6 +10,8 @@ import {
 import AdminSignup from "../components/AddAdmin";
 import EmployeeSignup from "../components/AddEmployee";
 import RemoveEmployee from "../components/RemoveEmployee";
+import RemoveVideo from "../components/RemoveVideo";
+import AddVideo from "../components/AddVideo";
 import { useState, useEffect } from "react";
 import React from "react";
 import { QUERY_EMPLOYEES } from "../utils/queries";
@@ -64,6 +64,8 @@ export default function admin() {
               <Button variant="info" className="mb-3">
                 View All Employees
               </Button>
+              <AddVideo />
+              <RemoveVideo />
             </Col>
             <Col xs={9}>
               {/* Main section to display employee details */}
