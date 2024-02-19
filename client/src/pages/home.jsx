@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import "./style/home.css";
 import { React, useState } from "react";
 import DynamicCard from "../components/dynamic_card";
-import Login from "./login.jsx";
+import Login from "./newLogin.jsx";
 import Auth from "../utils/auth.js";
 import {
   ApolloProvider,
