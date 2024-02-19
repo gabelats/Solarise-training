@@ -74,7 +74,7 @@ const resolvers = {
 
       return { token, admin };
     },
-    addVideo: async (parent, { title, videoLink }, context) => {
+    addVideo: async (parent, { title, videoLink, day }, context) => {
       if (context.user) {
         const video = await Video.create({
           title,
