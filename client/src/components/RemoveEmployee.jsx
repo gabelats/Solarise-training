@@ -1,8 +1,9 @@
 import { Button, Modal, Container } from "react-bootstrap";
 import { useState } from "react";
 import React from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { REMOVE_EMPLOYEE } from "../utils/mutations";
+import { QUERY_EMPLOYEES } from "../utils/queries";
 
 const RemoveEmployee = ({ employees, setEmployees }) => {
   const [employeeFormState, setemployeeFormState] = useState({
@@ -37,12 +38,20 @@ const RemoveEmployee = ({ employees, setEmployees }) => {
       const { data } = await deleteEmployee({
         variables: { ...employeeFormState },
       });
+
+      setEmployees(
+        employees.filter(
+          (employee) => employee.username !== employeeFormState.username
+        )
+      );
+
       setModalFormState(false);
       setResponseMessage(success);
     } catch (error) {
       console.error(error);
       setResponseMessage(failure);
     }
+
     setemployeeFormState({
       username: "",
     });
