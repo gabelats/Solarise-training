@@ -1,14 +1,4 @@
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  Modal,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Button, Modal, Container } from "react-bootstrap";
 import { useState } from "react";
 import React from "react";
 import { useMutation } from "@apollo/client";
@@ -21,10 +11,15 @@ const RemoveEmployee = ({ employees, setEmployees }) => {
   const [deleteEmployee, { data, error }] = useMutation(REMOVE_EMPLOYEE);
 
   const [modalFormState, setModalFormState] = useState(false);
+  const handleMainShow = () => setModalFormState(true);
+  const handleMainClose = () => setModalFormState(false);
 
-  const handleShow = () => setModalFormState(true);
-  const handleClose = () => setModalFormState(false);
-
+  const [responseModal, setResponseModal] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+  const handleResponseClose = () => setResponseModal(false);
+  const success = "sucessfully removed employee";
+  const failure =
+    "something went wrong... please try again later! If error persists, please contact the development team.";
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -42,15 +37,16 @@ const RemoveEmployee = ({ employees, setEmployees }) => {
       const { data } = await deleteEmployee({
         variables: { ...employeeFormState },
       });
-      // const removeEmployee = data.deleteEmployee;
-      // // const updatedArray = employees.filter((keep) => {
-      // //   keep.username !== removeEmployee.username;
-      // // });
-      // setEmployees([removeEmployee, ...employees]);
       setModalFormState(false);
+      setResponseMessage(success);
     } catch (error) {
       console.error(error);
+      setResponseMessage(failure);
     }
+    setemployeeFormState({
+      username: "",
+    });
+    setResponseModal(true);
   };
 
   return (
@@ -58,36 +54,42 @@ const RemoveEmployee = ({ employees, setEmployees }) => {
       className="modal show"
       style={{ display: "block", position: "initial" }}
     >
-      <Button variant="danger" className="mb-3" onClick={handleShow}>
+      <Button variant="danger" className="mb-3" onClick={handleMainShow}>
         Remove Employee
       </Button>
-      <Modal show={modalFormState} onHide={handleClose}>
-        <Modal.Dialog>
-          <Modal.Header closeButton>
-            <Modal.Title>Remove Employee</Modal.Title>
-          </Modal.Header>
+      <Modal show={modalFormState} onHide={handleMainClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Remove Employee</Modal.Title>
+        </Modal.Header>
 
-          <Modal.Body>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Employees Username"
-                name="username"
-                type="text"
-                value={employeeFormState.username}
-                onChange={handleChange}
-              />
-              <Button
-                variant="primary"
-                style={{ cursor: "pointer" }}
-                type="submit"
-                onClick={handleClose}
-              >
-                Delete
-              </Button>
-            </form>
-          </Modal.Body>
-        </Modal.Dialog>
+        <Modal.Body>
+          <form onSubmit={handleFormSubmit}>
+            <input
+              className="form-input"
+              placeholder="Employees Username"
+              name="username"
+              type="text"
+              value={employeeFormState.username}
+              onChange={handleChange}
+            />
+            <Button
+              variant="danger"
+              style={{ cursor: "pointer" }}
+              type="submit"
+              className="mx-2"
+            >
+              Delete
+            </Button>
+          </form>
+        </Modal.Body>
+      </Modal>
+      <Modal show={responseModal} onHide={handleResponseClose}>
+        <Modal.Body>
+          <h4>{responseMessage}</h4>
+          <Button variant="secondary" onClick={handleResponseClose}>
+            Close
+          </Button>
+        </Modal.Body>
       </Modal>
     </div>
   );
