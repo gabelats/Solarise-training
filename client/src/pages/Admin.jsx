@@ -1,12 +1,5 @@
-import {
-  Form,
-  FormControl,
-  Button,
-  Container,
-  Row,
-  Col,
-  Table,
-} from "react-bootstrap";
+import { Button, Container, Row, Col, Table } from "react-bootstrap";
+import Search from "../components/Search";
 import AdminSignup from "../components/AddAdmin";
 import EmployeeSignup from "../components/AddEmployee";
 import RemoveEmployee from "../components/RemoveEmployee";
@@ -42,16 +35,7 @@ export default function admin() {
           <Row>
             <Col xs={3} className="d-flex flex-column">
               <h2>Welcome, {username}</h2>
-              <Form inline>
-                <FormControl
-                  type="text"
-                  placeholder="Search Employee"
-                  className="mr-sm-2"
-                />
-                <Button variant="outline-warning" className="mt-3 mb-3">
-                  Search
-                </Button>
-              </Form>
+              <Search employees={employees} setEmployees={setEmployees} />
               <AdminSignup />
               <EmployeeSignup
                 employees={employees}
