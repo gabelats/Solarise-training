@@ -109,6 +109,6 @@ export default function admin() {
       </div>
     );
   } else {
-    window.location.replace("/adminlogin");
+    window.location.replace("/login");
   }
 }
