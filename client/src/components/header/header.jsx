@@ -61,8 +61,8 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                 </a>
               </Nav>
               <Nav className="m-2">
-                {userLoggedIn ? (
-                  <button onClick={handleLogout} className="btn btn-custom">
+                {Auth.loggedIn() == true ? (
+                  <button onClick={adminLogout} className="btn btn-custom">
                     Logout
                   </button>
                 ) : (
