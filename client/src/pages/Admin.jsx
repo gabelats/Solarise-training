@@ -36,6 +36,13 @@ export default function admin() {
             <Col xs={3} className="d-flex flex-column">
               <h2>Welcome, {username}</h2>
               <Search employees={employees} setEmployees={setEmployees} />
+              <Button
+                variant="info"
+                className="mb-3"
+                onClick={() => setEmployees(data.employees)}
+              >
+                View All
+              </Button>
               <AdminSignup />
               <EmployeeSignup
                 employees={employees}
@@ -45,13 +52,12 @@ export default function admin() {
                 employees={employees}
                 setEmployees={setEmployees}
               />
-              <Button variant="info" className="mb-3">
-                View All Employees
-              </Button>
+
               <AddVideo />
               <RemoveVideo />
             </Col>
             <Col xs={9}>
+              <h3>Employees:</h3>
               {/* Main section to display employee details */}
               <Table striped>
                 <thead>
@@ -67,6 +73,25 @@ export default function admin() {
                       <td>{employeeID(employee._id)}</td>
                       <td>{employee.name}</td>
                       <td>{employee.username}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <h3>Administrators:</h3>
+              <Table striped>
+                <thead>
+                  <tr>
+                    <th>Admin Email</th>
+                    <th>Admin Name</th>
+                    <th>Admin Username</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {employees.map((employee) => (
+                    <tr key={employee._id}>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                   ))}
                 </tbody>
