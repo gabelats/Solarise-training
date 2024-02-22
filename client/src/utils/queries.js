@@ -50,3 +50,14 @@ export const QUERY_VIDEOS = gql`
     }
   }
 `;
+
+export const QUERY_ADMINS = gql`
+  query admins {
+    admins {
+      _id
+      email
+      name
+      username
+    }
+  }
+`;

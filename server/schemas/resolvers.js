@@ -23,6 +23,9 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    admins: async () => {
+      return await Admin.find();
+    },
   },
 
   Mutation: {
