@@ -1,20 +1,8 @@
-import {
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-  Modal,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_ADMIN } from "../utils/mutations";
-
-const username = "Placeholder";
 
 const AdminSignup = () => {
   const [adminFormState, setAdminFormState] = useState({
@@ -24,9 +12,16 @@ const AdminSignup = () => {
     password: "",
   });
   const [modalFormState, setModalFormState] = useState(false);
-  const handleShow = () => setModalFormState(true);
-  const handleClose = () => setModalFormState(false);
+  const handleMainShow = () => setModalFormState(true);
+  const handleMainClose = () => setModalFormState(false);
   const [addAdmin, { error, data }] = useMutation(ADD_ADMIN);
+
+  const [responseModal, setResponseModal] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+  const handleResponseClose = () => setResponseModal(false);
+  const success = "Admin successfully added";
+  const failure =
+    "something went wrong... please try again later! If error persists, please contact the development team.";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,9 +40,18 @@ const AdminSignup = () => {
         variables: { ...adminFormState },
       });
       setModalFormState(false);
+      setResponseMessage(success);
     } catch (e) {
       console.error(e);
+      setResponseMessage(failure);
     }
+    setAdminFormState({
+      name: "",
+      email: "",
+      username: "",
+      password: "",
+    });
+    setResponseModal(true);
   };
 
   return (
@@ -55,14 +59,13 @@ const AdminSignup = () => {
       className="modal show"
       style={{ display: "block", position: "initial" }}
     >
-      <Button variant="success" className="mb-3" onClick={handleShow}>
+      <Button variant="success" className="mb-3" onClick={handleMainShow}>
         Add Admin
       </Button>
-      <Modal show={modalFormState} onHide={handleClose}>
+      <Modal show={modalFormState} onHide={handleMainClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create New Admin</Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
           <form onSubmit={handleFormSubmit}>
             <input
@@ -105,6 +108,14 @@ const AdminSignup = () => {
               Submit
             </Button>
           </form>
+        </Modal.Body>
+      </Modal>
+      <Modal show={responseModal} onHide={handleResponseClose}>
+        <Modal.Body>
+          <h4>{responseMessage}</h4>
+          <Button variant="secondary" onClick={handleResponseClose}>
+            Close
+          </Button>
         </Modal.Body>
       </Modal>
     </div>
