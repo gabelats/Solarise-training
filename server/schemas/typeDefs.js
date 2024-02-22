@@ -35,6 +35,7 @@ const typeDefs = `
     videos: [Video]
     video(videoId: ID!): Video
     me: Admin
+    admins: [Admin]
   }
 
   type Mutation {

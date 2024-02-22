@@ -7,7 +7,7 @@ import RemoveVideo from "../components/RemoveVideo";
 import AddVideo from "../components/AddVideo";
 import { useState, useEffect } from "react";
 import React from "react";
-import { QUERY_EMPLOYEES } from "../utils/queries";
+import { QUERY_EMPLOYEES, QUERY_ADMINS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 const username = "Placeholder";
@@ -15,15 +15,22 @@ const username = "Placeholder";
 export default function admin() {
   // const [tableState, setTableState] = useState({});
   const [employees, setEmployees] = useState([]);
-
+  const [admins, setAdmins] = useState([]);
   const { loading, data } = useQuery(QUERY_EMPLOYEES);
-  // const employees = data?.employees || [];
+  const adminQuery = useQuery(QUERY_ADMINS);
+  const adminData = adminQuery.data?.admins || [];
   useEffect(() => {
     if (data) {
       setEmployees(data.employees);
     }
   }, [loading, data]);
-  console.log(employees);
+
+  useEffect(() => {
+    if (adminData) {
+      setAdmins(adminData);
+    }
+  }, [adminQuery]);
+
   function employeeID(id) {
     return id.split("").slice(17);
   }
@@ -43,7 +50,7 @@ export default function admin() {
               >
                 View All
               </Button>
-              <AdminSignup />
+              <AdminSignup admins={admins} setAdmins={setAdmins} />
               <EmployeeSignup
                 employees={employees}
                 setEmployees={setEmployees}
@@ -87,11 +94,11 @@ export default function admin() {
                   </tr>
                 </thead>
                 <tbody>
-                  {employees.map((employee) => (
-                    <tr key={employee._id}>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                  {admins.map((admin) => (
+                    <tr key={admin._id}>
+                      <td>{admin.email}</td>
+                      <td>{admin.name}</td>
+                      <td>{admin.username}</td>
                     </tr>
                   ))}
                 </tbody>

@@ -4,7 +4,7 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_ADMIN } from "../utils/mutations";
 
-const AdminSignup = () => {
+const AdminSignup = ({ admins, setAdmins }) => {
   const [adminFormState, setAdminFormState] = useState({
     name: "",
     email: "",
@@ -39,6 +39,8 @@ const AdminSignup = () => {
       const { data } = await addAdmin({
         variables: { ...adminFormState },
       });
+      const newAdmin = data.addAdmin;
+      setAdmins([...admins, newAdmin]);
       setModalFormState(false);
       setResponseMessage(success);
     } catch (e) {
