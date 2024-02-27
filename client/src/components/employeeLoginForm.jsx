@@ -4,7 +4,7 @@ import { useMutation } from "@apollo/client";
 import { EMPLOYEE_LOGIN } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
 
-const EmployeeLoginForm = () => {
+const EmployeeLoginForm = ({ userLoggedIn, setUserLoggedIn }) => {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [login, { error }] = useMutation(EMPLOYEE_LOGIN);
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const EmployeeLoginForm = () => {
         variables: { ...formState },
       });
       console.log("Login success:", data);
-      //   setUserLoggedIn(true);
+      setUserLoggedIn(true);
       navigate("/");
     } catch (err) {
       console.error("Login error:", err);

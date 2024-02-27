@@ -24,3 +24,5 @@ A logged in admin will be taken to the admin page where they will be able to add
 Github Repo: https://github.com/gabelats/Solarise-training
 
 Deployed site: https://cryptic-forest-58869-d12e210f5115.herokuapp.com
+
+Project Presentation Slides: https://docs.google.com/presentation/d/1274aQ4dJzC_LrSeo7HnYsmhYcjAv91EZEvLDlO8hInY/edit?usp=sharing
