@@ -55,11 +55,6 @@ export default function admin() {
                 employees={employees}
                 setEmployees={setEmployees}
               />
-              <RemoveEmployee
-                employees={employees}
-                setEmployees={setEmployees}
-              />
-
               <AddVideo />
               <RemoveVideo />
             </Col>
@@ -80,6 +75,13 @@ export default function admin() {
                       <td>{employeeID(employee._id)}</td>
                       <td>{employee.name}</td>
                       <td>{employee.username}</td>
+                      <td>
+                        <RemoveEmployee
+                          employees={employees}
+                          setEmployees={setEmployees}
+                          employee={employee.username}
+                        />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
