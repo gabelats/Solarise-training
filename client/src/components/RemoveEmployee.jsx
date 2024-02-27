@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { REMOVE_EMPLOYEE } from "../utils/mutations";
-
+import "./components.css";
 const RemoveEmployee = ({ employees, setEmployees, employee }) => {
   const [deleteEmployee, { data, error }] = useMutation(REMOVE_EMPLOYEE);
   const [modalFormState, setModalFormState] = useState(false);
@@ -36,6 +36,7 @@ const RemoveEmployee = ({ employees, setEmployees, employee }) => {
         src="/assets/remove.svg"
         alt="remove employee"
         onClick={handleMainShow}
+        class="remove-button"
       />
       <Modal show={modalFormState} onHide={handleMainClose}>
         <Modal.Header closeButton>

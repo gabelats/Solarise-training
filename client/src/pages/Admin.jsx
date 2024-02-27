@@ -10,7 +10,6 @@ import React from "react";
 import { QUERY_EMPLOYEES, QUERY_ADMINS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
-const username = "Placeholder";
 
 export default function admin() {
   // const [tableState, setTableState] = useState({});
@@ -34,6 +33,9 @@ export default function admin() {
   function employeeID(id) {
     return id.split("").slice(17);
   }
+  const currentAdmin = Auth.getProfile();
+  console.log(currentAdmin);
+  const username = currentAdmin.data.username;
 
   if (Auth.loggedIn() == true) {
     return (
