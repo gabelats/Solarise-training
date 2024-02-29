@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./header.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 function Header({ userLoggedIn, setUserLoggedIn }) {
@@ -63,11 +63,20 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
               <Nav className="m-2">
                 {Auth.loggedIn() == true ? (
                   <button onClick={adminLogout} className="btn btn-custom">
+                    <Link to="/" className="nav-link-custom m-2 ">
+                      Logout
+                    </Link>
+                  </button>
+                ) : (
+                  <div></div>
+                )}
+                {userLoggedIn == true ? (
+                  <button onClick={userLogout} className="btn btn-custom">
                     Logout
                   </button>
                 ) : (
                   <Link to="/login" className="nav-link-custom m-2 ">
-                    Login
+                    Employee Login
                   </Link>
                 )}
               </Nav>

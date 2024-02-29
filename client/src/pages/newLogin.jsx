@@ -20,7 +20,7 @@ const Login = ({ userLoggedIn, setUserLoggedIn }) => {
           <Col>
             <img
               alt=""
-              src="../../public/assets/Full_logo.png"
+              src="/assets/Full_logo.png"
               width="600"
               height="200"
               className="d-inline-block align-top"

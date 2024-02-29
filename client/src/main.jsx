@@ -9,6 +9,7 @@ import Module from "./pages/module.jsx";
 import Error from "./pages/Error.jsx";
 import Lesson from "./pages/lesson.jsx";
 import AdminLogin from "./pages/AdminLogin.jsx";
+import Login from "./pages/newLogin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/lesson/:day",
         element: <Lesson />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
