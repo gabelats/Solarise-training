@@ -6,8 +6,8 @@ import { Link, useParams } from "react-router-dom";
 import schedule from "../schedule";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useState } from "react";
 import Auth from "../utils/auth";
+import { useOutletContext } from "react-router-dom";
 //
 //
 //
@@ -15,9 +15,8 @@ import Auth from "../utils/auth";
 export default function module() {
   const today = schedule.filter((item) => item.day == useParams().day);
   const dayInfo = today[0];
-
+  const [userLoggedIn, setUserLoggedIn] = useOutletContext();
   const lessonLink = `/lesson/${dayInfo.day}`;
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
   if (Auth.loggedIn() || userLoggedIn == true) {
     return (
       <Container>

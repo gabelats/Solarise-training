@@ -36,10 +36,7 @@ function App() {
       <div>
         <Header userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
         <div className="container">
-          <Outlet
-            setUserLoggedIn={setUserLoggedIn}
-            userLoggedIn={userLoggedIn}
-          />
+          <Outlet context={[userLoggedIn, setUserLoggedIn]} />
         </div>
         <Footer />
       </div>

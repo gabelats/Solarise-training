@@ -10,16 +10,16 @@ import DayProgress from "../components/day-progress";
 import { useQuery } from "@apollo/client";
 import { QUERY_VIDEOS } from "../utils/queries";
 import Auth from "../utils/auth";
-
+import { useOutletContext } from "react-router-dom";
 export default function Lesson() {
+  const [userLoggedIn, setUserLoggedIn] = useOutletContext();
   const today = schedule.filter((item) => item.day == useParams().day);
   const dayInfo = today[0];
   const { loading, data } = useQuery(QUERY_VIDEOS);
   const videos = data?.videos || [];
   const todaysVideos = videos.filter(
-    (video) => video.day == `Day ${dayInfo.day}` || dayInfo.day
+    (video) => video.day == `Day ${dayInfo.day}`
   );
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
   if (Auth.loggedIn() || userLoggedIn == true) {
     return (
       <Container>
