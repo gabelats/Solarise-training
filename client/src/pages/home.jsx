@@ -11,7 +11,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-
+import { useOutletContext } from "react-router-dom";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -29,8 +29,9 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 export default function Home() {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useOutletContext();
   if (Auth.loggedIn() || userLoggedIn == true) {
     return (
       <Container>
@@ -102,7 +103,7 @@ export default function Home() {
   } else {
     return (
       <ApolloProvider client={client}>
-        <Login setUserLoggedIn={setUserLoggedIn} />
+        <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
       </ApolloProvider>
     );
   }
