@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./app.jsx";
 import Admin from "./pages/Admin.jsx";
 import Home from "./pages/home.jsx";
-import Module from "./pages/Module.jsx";
+import Module from "./pages/module.jsx";
 import Error from "./pages/Error.jsx";
 import Lesson from "./pages/lesson.jsx";
 import AdminLogin from "./pages/AdminLogin.jsx";
