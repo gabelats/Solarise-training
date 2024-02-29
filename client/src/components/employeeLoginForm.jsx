@@ -1,5 +1,5 @@
 // EmployeeLoginForm.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { EMPLOYEE_LOGIN } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +22,9 @@ const EmployeeLoginForm = ({ userLoggedIn, setUserLoggedIn }) => {
       });
       console.log("Login success:", data);
       setUserLoggedIn(true);
+      useEffect(() => {
+        localStorage.setItem("userLoggedIn", userLoggedIn);
+      }, [userLoggedIn]);
       navigate("/");
     } catch (err) {
       console.error("Login error:", err);

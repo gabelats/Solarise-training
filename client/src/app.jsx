@@ -1,6 +1,6 @@
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import {
   ApolloClient,
@@ -30,7 +30,12 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(
+    localStorage.getItem("userLoggedIn") === "true"
+  );
+  useEffect(() => {
+    localStorage.setItem("userLoggedIn", userLoggedIn);
+  }, [userLoggedIn]);
   return (
     <ApolloProvider client={client}>
       <div>
