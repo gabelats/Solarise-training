@@ -97,6 +97,15 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    removeAdmin: async (parent, { email }, context) => {
+      if (context.user) {
+        const admin = await Admin.findOneAndDelete({
+          email: email,
+        });
+        return admin;
+      }
+      throw AuthenticationError;
+    },
     removeVideo: async (parent, { videoId }, context) => {
       if (context.user) {
         const video = await Video.findOneAndDelete({

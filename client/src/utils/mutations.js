@@ -72,7 +72,13 @@ export const REMOVE_EMPLOYEE = gql`
     }
   }
 `;
-
+export const REMOVE_ADMIN = gql`
+  mutation removeAdmin($email: String!) {
+    removeAdmin(email: $email) {
+      email
+    }
+  }
+`;
 export const REMOVE_VIDEO = gql`
   mutation removeVideo($videoId: ID!) {
     removeVideo(videoId: $videoId) {

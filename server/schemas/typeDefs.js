@@ -46,6 +46,7 @@ const typeDefs = `
     addVideo(title: String!, videoLink: String!, day: String!): Video
     removeEmployee(username: String!): Employee
     removeVideo(videoId: ID!): Video
+    removeAdmin(email: String!): Admin
   }
 `;
 

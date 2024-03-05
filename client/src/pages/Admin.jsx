@@ -3,6 +3,7 @@ import Search from "../components/Search";
 import AdminSignup from "../components/AddAdmin";
 import EmployeeSignup from "../components/AddEmployee";
 import RemoveEmployee from "../components/RemoveEmployee";
+import RemoveAdmin from "../components/RemoveAdmin";
 import RemoveVideo from "../components/RemoveVideo";
 import AddVideo from "../components/AddVideo";
 import { useState, useEffect } from "react";
@@ -103,6 +104,13 @@ export default function admin() {
                       <td>{admin.email}</td>
                       <td>{admin.name}</td>
                       <td>{admin.username}</td>
+                      <td>
+                        <RemoveAdmin
+                          admins={admins}
+                          setAdmins={setAdmins}
+                          admin={admin.email}
+                        />
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -113,6 +121,6 @@ export default function admin() {
       </div>
     );
   } else {
-    window.location.replace("/login");
+    window.location.replace("/");
   }
 }
