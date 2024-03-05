@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import EmployeeLoginForm from "../components/employeeLoginForm";
 import AdminLoginForm from "../components/adminLoginForm";
 
-const Login = ({ userLoggedIn, setUserLoggedIn }) => {
+const Login = ({ userLoggedIn, setUserLoggedIn, admin, setAdmin }) => {
   const [activeTab, setActiveTab] = useState("employee");
 
   const handleTabChange = (tab) => {
@@ -55,7 +55,7 @@ const Login = ({ userLoggedIn, setUserLoggedIn }) => {
                 setUserLoggedIn={setUserLoggedIn}
               />
             ) : (
-              <AdminLoginForm />
+              <AdminLoginForm admin={admin} setAdmin={setAdmin} />
             )}
           </Col>
         </Row>

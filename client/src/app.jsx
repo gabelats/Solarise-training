@@ -36,12 +36,19 @@ function App() {
   useEffect(() => {
     localStorage.setItem("userLoggedIn", userLoggedIn);
   }, [userLoggedIn]);
+
+  const [admin, setAdmin] = useState(false);
   return (
     <ApolloProvider client={client}>
       <div>
-        <Header userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
+        <Header
+          userLoggedIn={userLoggedIn}
+          setUserLoggedIn={setUserLoggedIn}
+          admin={admin}
+          setAdmin={setAdmin}
+        />
         <div className="container">
-          <Outlet context={[userLoggedIn, setUserLoggedIn]} />
+          <Outlet context={[userLoggedIn, setUserLoggedIn, admin, setAdmin]} />
         </div>
         <Footer />
       </div>
