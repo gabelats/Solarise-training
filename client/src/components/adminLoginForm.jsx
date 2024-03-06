@@ -5,7 +5,7 @@ import { LOGIN } from "../utils/mutations";
 import { useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
-const AdminLoginForm = () => {
+const AdminLoginForm = ({ admin, setAdmin }) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const AdminLoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setAdmin(true);
     try {
       const { data } = await login({
         variables: { ...formState },

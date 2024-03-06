@@ -31,8 +31,8 @@ const client = new ApolloClient({
 });
 
 export default function Home() {
-  const [userLoggedIn, setUserLoggedIn] = useOutletContext();
-  if (Auth.loggedIn() || userLoggedIn == true) {
+  const [userLoggedIn, setUserLoggedIn, admin, setAdmin] = useOutletContext();
+  if (admin || userLoggedIn == true) {
     return (
       <Container>
         <div className="background-gradient p-3 mt-3 mb-3 border rounded border-dark">
@@ -103,7 +103,12 @@ export default function Home() {
   } else {
     return (
       <ApolloProvider client={client}>
-        <Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
+        <Login
+          userLoggedIn={userLoggedIn}
+          setUserLoggedIn={setUserLoggedIn}
+          admin={admin}
+          setAdmin={setAdmin}
+        />
       </ApolloProvider>
     );
   }

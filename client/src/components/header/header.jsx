@@ -5,9 +5,10 @@ import "./header.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Auth from "../../utils/auth";
 
-function Header({ userLoggedIn, setUserLoggedIn }) {
+function Header({ userLoggedIn, setUserLoggedIn, admin, setAdmin }) {
   const adminLogout = (event) => {
     event.preventDefault();
+    setAdmin(false);
     Auth.logout();
   };
 
@@ -39,7 +40,7 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                   Navbar.Collapse ? "flex-column flex-lg-row " : "flex-row"
                 }
               >
-                {Auth.loggedIn() == true ? (
+                {admin == true ? (
                   <Link to="/Admin" className="nav-link-custom m-2">
                     Admin Dashboard
                   </Link>
@@ -61,7 +62,7 @@ function Header({ userLoggedIn, setUserLoggedIn }) {
                 </a>
               </Nav>
               <Nav className="m-2">
-                {Auth.loggedIn() == true ? (
+                {admin == true ? (
                   <button onClick={adminLogout} className="btn btn-custom">
                     <Link to="/" className="nav-link-custom m-2 ">
                       Logout
