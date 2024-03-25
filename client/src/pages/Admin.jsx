@@ -1,3 +1,4 @@
+//IMPORTS
 import { Button, Container, Row, Col, Table } from "react-bootstrap";
 import Search from "../components/Search";
 import AdminSignup from "../components/AddAdmin";
@@ -12,10 +13,14 @@ import { QUERY_EMPLOYEES, QUERY_ADMINS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
 
+//
+//export function
 export default function admin() {
-  // const [tableState, setTableState] = useState({});
+  //creating states for employee and admin tables
   const [employees, setEmployees] = useState([]);
   const [admins, setAdmins] = useState([]);
+
+  //loading arrays with data
   const { loading, data } = useQuery(QUERY_EMPLOYEES);
   const adminQuery = useQuery(QUERY_ADMINS);
   const adminData = adminQuery.data?.admins || [];
@@ -31,6 +36,7 @@ export default function admin() {
     }
   }, [adminQuery]);
 
+  //function to generate employee id
   function employeeID(id) {
     return id.split("").slice(17);
   }
@@ -38,6 +44,7 @@ export default function admin() {
   console.log(currentAdmin);
   const username = currentAdmin.data.username;
 
+  //conditional rendering to check admin state
   if (Auth.loggedIn() == true) {
     return (
       <div>

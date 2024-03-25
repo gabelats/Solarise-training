@@ -1,6 +1,7 @@
+//IMPORTS
 import Container from "react-bootstrap/Container";
 import "./style/home.css";
-import { React, useState } from "react";
+import { React } from "react";
 import DynamicCard from "../components/dynamic_card";
 import Login from "./newLogin.jsx";
 import Auth from "../utils/auth.js";
@@ -12,10 +13,15 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { useOutletContext } from "react-router-dom";
+
+//
+//access to Apollo testing environment
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+//
+//Connection to Authorization
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
@@ -30,7 +36,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+//
+// export function
 export default function Home() {
+  //Taking the userloggedin and admin context for conditional rendering
   const [userLoggedIn, setUserLoggedIn, admin, setAdmin] = useOutletContext();
   if (admin || userLoggedIn == true) {
     return (
@@ -101,6 +110,7 @@ export default function Home() {
       </Container>
     );
   } else {
+    //Pass the props towards the login page
     return (
       <ApolloProvider client={client}>
         <Login

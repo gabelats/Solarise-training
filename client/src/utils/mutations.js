@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+//Update:
 export const EMPLOYEE_LOGIN = gql`
   mutation EmployeeLogin($username: String!, $password: String!) {
     employeeLogin(username: $username, password: $password) {
@@ -23,7 +24,7 @@ export const LOGIN = gql`
     }
   }
 `;
-
+//Create:
 export const ADD_EMPLOYEE = gql`
   mutation addEmployee($name: String!, $username: String!, $password: String!) {
     addEmployee(name: $name, username: $username, password: $password) {
@@ -65,6 +66,7 @@ export const ADD_VIDEO = gql`
   }
 `;
 
+//Delete:
 export const REMOVE_EMPLOYEE = gql`
   mutation removeEmployee($username: String!) {
     removeEmployee(username: $username) {

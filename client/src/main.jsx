@@ -1,3 +1,4 @@
+//IMPORTS
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,6 +12,8 @@ import Lesson from "./pages/lesson.jsx";
 import AdminLogin from "./pages/AdminLogin.jsx";
 import Login from "./pages/newLogin.jsx";
 
+//
+//Routes
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +48,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+//
+//Router setup
 ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
 );

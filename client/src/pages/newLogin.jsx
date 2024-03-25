@@ -1,3 +1,4 @@
+//IMPORTS
 import React, { useState } from "react";
 import { Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
@@ -6,7 +7,9 @@ import Col from "react-bootstrap/Col";
 import EmployeeLoginForm from "../components/employeeLoginForm";
 import AdminLoginForm from "../components/adminLoginForm";
 
+//Login with Props for admin/Employee login
 const Login = ({ userLoggedIn, setUserLoggedIn, admin, setAdmin }) => {
+  //Tabswitcher state
   const [activeTab, setActiveTab] = useState("employee");
 
   const handleTabChange = (tab) => {
