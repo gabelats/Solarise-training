@@ -1,3 +1,4 @@
+//IMPORTS
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
 import { useState, useEffect } from "react";
@@ -8,12 +9,12 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
-// import "client/src/app.css";
 import { setContext } from "@apollo/client/link/context";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
+// Connection to Authorization
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
@@ -29,6 +30,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+//
+// App function and
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(
     localStorage.getItem("userLoggedIn") === "true"

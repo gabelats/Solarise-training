@@ -1,3 +1,4 @@
+//IMPORTS
 import Container from "react-bootstrap/Container";
 import "./style/home.css";
 import React from "react";
@@ -8,15 +9,17 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Auth from "../utils/auth";
 import { useOutletContext } from "react-router-dom";
-//
-//
-//
 
+//
+//export function
 export default function module() {
+  //Functions to find the user's chosen day of the training week and loading the proper content
   const today = schedule.filter((item) => item.day == useParams().day);
   const dayInfo = today[0];
-  const [userLoggedIn, setUserLoggedIn] = useOutletContext();
   const lessonLink = `/lesson/${dayInfo.day}`;
+  //Taking the userloggedin context for conditional rendering
+  const [userLoggedIn, setUserLoggedIn] = useOutletContext();
+
   if (Auth.loggedIn() || userLoggedIn == true) {
     return (
       <Container>

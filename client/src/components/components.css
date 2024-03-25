@@ -1,3 +1,13 @@
 .remove-button:hover {
   cursor: pointer;
 }
+
+#submitButton {
+  background-color: #f8932d;
+  border: 0px;
+  color: rgb(8, 8, 8);
+}
+#submitButton:hover {
+  background-color: #fd9e40;
+  color: black;
+}

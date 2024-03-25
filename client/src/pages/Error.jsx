@@ -1,4 +1,8 @@
+//IMPORTS
 import { Link } from "react-router-dom";
+
+//
+//export function
 export default function Error() {
   return (
     <div className="text-center">

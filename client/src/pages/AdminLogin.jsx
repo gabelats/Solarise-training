@@ -1,3 +1,4 @@
+//IMPORTS
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -9,11 +10,14 @@ import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 
+//
+//export function
 const Adminlogin = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
   const navigate = useNavigate();
 
+  //Handle Admin login change and submit
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({ ...formState, [name]: value });
@@ -32,7 +36,7 @@ const Adminlogin = () => {
       console.error("Login error:", err);
     }
   };
-
+  //
   return (
     <div className="login-page">
       <div className="container">
