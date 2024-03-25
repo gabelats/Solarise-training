@@ -1,16 +1,18 @@
 .nav-link-custom {
   color: black; /* Override text color */
   text-decoration: none;
+  border-spacing: 30px;
 }
 
-.nav-pills .nav-link-custom.active,
+/* .nav-pills .nav-link-custom.active,
 .nav-pills .show > .nav-link-custom {
   background-color: #fad74b !important;
-  /* Override active text color */
-}
+} */
 
-.nav-link-custom:hover {
-  background-color: #fad74b; /* Text color on hover */
+Nav .nav-link-custom:hover {
+  /* background-color: #fa9f44; */
+  background-color: #f8932d3b;
+  box-shadow: 0px 0px 20px #fa9f4493;
   color: black;
   border-radius: 20px;
 }
@@ -25,6 +27,12 @@
   color: black;
 }
 .btn-custom:hover {
+  background-color: #fa9f44;
+  color: black;
+}
+
+.btn-custom .nav-link-custom:hover {
   background-color: #fc9935;
   color: black;
+  border-radius: 20px;
 }
