@@ -5,3 +5,15 @@ div {
   background-image: linear-gradient(to bottom right, #ff8000, #ffcc08);
   min-height: 100vh;
 }
+
+.nav-link {
+  color: rgb(100, 100, 100);
+}
+
+.nav-link:hover {
+  color: rgb(20, 20, 20);
+}
+
+a:hover {
+  background-color: white;
+}
