@@ -22,7 +22,7 @@ function Header({ userLoggedIn, setUserLoggedIn, admin, setAdmin }) {
       <header>
         <Navbar sticky="top" className="bg-light" collapseOnSelect expand="lg">
           <Container className="justify-content-between">
-            <Navbar.Brand href="/">
+            <Link to="/">
               <img
                 alt=""
                 src="/assets/Full_logo.png"
@@ -30,7 +30,7 @@ function Header({ userLoggedIn, setUserLoggedIn, admin, setAdmin }) {
                 height="50"
                 className="d-inline-block align-center img2"
               />{" "}
-            </Navbar.Brand>
+            </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav

@@ -53,13 +53,7 @@ export default function admin() {
             <Col xs={3} className="d-flex flex-column">
               <h2>Welcome, {username}</h2>
               <Search employees={employees} setEmployees={setEmployees} />
-              <Button
-                variant="info"
-                className="mb-3"
-                onClick={() => setEmployees(data.employees)}
-              >
-                View All
-              </Button>
+
               <AdminSignup admins={admins} setAdmins={setAdmins} />
               <EmployeeSignup
                 employees={employees}
