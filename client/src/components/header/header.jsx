@@ -76,9 +76,7 @@ function Header({ userLoggedIn, setUserLoggedIn, admin, setAdmin }) {
                     Logout
                   </button>
                 ) : (
-                  <Link to="/login" className="nav-link-custom m-2 ">
-                    Employee Login
-                  </Link>
+                  <div></div>
                 )}
               </Nav>
             </Navbar.Collapse>
